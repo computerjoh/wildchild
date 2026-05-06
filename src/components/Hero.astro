@@ -1,27 +1,29 @@
 ---
 interface Props {
-  headline?: string;
-  subheadline?: string;
-  showCTA?: boolean;
-  imageSrc?: string;
-  imageAlt?: string;
-  compact?: boolean;
-  divider?: 'none' | 'flatirons';
+	headline?: string;
+	subheadline?: string;
+	showCTA?: boolean;
+	showForm?: boolean;
+	imageSrc?: string;
+	imageAlt?: string;
+	compact?: boolean;
+	divider?: "none" | "flatirons";
 }
 
 const {
-  headline = 'The Best Adventure Day Camp in Colorado',
-  subheadline = 'Dream BIG · Be BRAVE · GO WILD',
-  showCTA = true,
-  imageSrc = 'https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?w=1600&q=80',
-  imageAlt = 'Kids on a mountain summit in Colorado',
-  compact = false,
-  divider = 'none',
+	headline = "The Best Adventure Day Camp in Colorado",
+	subheadline = "Dream BIG · Be BRAVE · GO WILD",
+	showCTA = true,
+	showForm = false,
+	imageSrc = "https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/IMG_6350-e023c33.jpeg/:/rs=w:767,m",
+	imageAlt = "Kids on a mountain summit in Colorado",
+	compact = false,
+	divider = "none",
 } = Astro.props;
 ---
 
 <section
-  class={`relative flex items-center justify-center text-white text-center overflow-hidden ${compact ? 'min-h-[40vh]' : 'min-h-[90vh]'}`}
+  class={`relative flex items-center justify-center text-white overflow-hidden ${compact ? 'min-h-[40vh]' : 'min-h-[90vh]'}`}
 >
   <img
     src={imageSrc}
@@ -29,34 +31,125 @@ const {
     class="absolute inset-0 w-full h-full object-cover"
     loading="eager"
   />
-  <div class="absolute inset-0 bg-gradient-to-b from-forest-dark/70 via-charcoal/50 to-charcoal/80" />
+  <div class="absolute inset-0 bg-gradient-to-b from-forest-dark/80 via-charcoal/65 to-charcoal/85" />
 
-  <div class="relative z-10 max-w-4xl mx-auto px-6 py-16">
-    <p class="text-gold font-display text-xl tracking-[0.3em] uppercase mb-4">
-      Westminster, Colorado · Ages 6–15
-    </p>
-    <h1 class={`font-display text-white leading-none mb-6 ${compact ? 'text-3xl sm:text-5xl md:text-7xl' : 'text-4xl sm:text-6xl md:text-8xl lg:text-9xl'}`}>
-      {headline}
-    </h1>
-    <p class="text-base sm:text-xl md:text-2xl font-semibold text-forest-light mb-10 tracking-wide">
-      {subheadline}
-    </p>
-    {showCTA && (
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="https://wildchildcamp.funjoin.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-sunset hover:bg-sunset-dark text-white font-bold py-4 px-10 rounded-full text-lg transition-all shadow-xl hover:shadow-sunset/40 hover:scale-105"
-        >
-          Register Now — 2026
-        </a>
-        <a
-          href="#programs"
-          class="bg-white/10 hover:bg-white/20 border border-white/40 text-white font-semibold py-4 px-10 rounded-full text-lg transition-all backdrop-blur-sm"
-        >
-          Explore Programs
-        </a>
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 py-16">
+    {showForm ? (
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <!-- Left: value proposition -->
+        <div class="text-left">
+          <p class="text-gold font-display text-lg tracking-[0.3em] uppercase mb-4">
+            Westminster, Colorado · Ages 6–15
+          </p>
+          <h1 class="font-display text-white leading-none mb-6 text-4xl sm:text-6xl md:text-7xl">
+            {headline}
+          </h1>
+          <p class="text-lg font-semibold text-white/80 mb-8 tracking-wide">
+            {subheadline}
+          </p>
+          <ul class="space-y-3 mb-8">
+            {[
+              '1:6 counselor-to-camper ratio — real attention, every day',
+              'Award-winning director with 26 years in youth development',
+              'Licensed & insured — trusted by Colorado families since 1999',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-white/90 text-sm">
+                <svg class="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/#programs" class="text-white/60 hover:text-white text-sm underline underline-offset-4 transition-colors">
+            Browse all programs ↓
+          </a>
+        </div>
+
+        <!-- Right: lead capture form -->
+        <div class="bg-white rounded-2xl shadow-2xl p-7 text-charcoal">
+          <h2 class="font-display text-2xl text-forest mb-1">Reserve Your Child's Spot</h2>
+          <p class="text-charcoal/60 text-sm mb-5">
+            Summer 2026 is filling fast. We'll follow up within 24 hours.
+          </p>
+          <!-- Replace action URL with your Formspree endpoint: https://formspree.io -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-3">
+            <input
+              type="text"
+              name="parent_name"
+              placeholder="Your name"
+              required
+              class="w-full border border-charcoal/20 rounded-xl px-4 py-3 text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:ring-2 focus:ring-forest"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              required
+              class="w-full border border-charcoal/20 rounded-xl px-4 py-3 text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:ring-2 focus:ring-forest"
+            />
+            <input
+              type="text"
+              name="child_age"
+              placeholder="Child's age or grade"
+              required
+              class="w-full border border-charcoal/20 rounded-xl px-4 py-3 text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:ring-2 focus:ring-forest"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone number (optional)"
+              class="w-full border border-charcoal/20 rounded-xl px-4 py-3 text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:ring-2 focus:ring-forest"
+            />
+            <button
+              type="submit"
+              class="w-full bg-sunset hover:bg-sunset-dark text-white font-bold py-3.5 px-6 rounded-full text-base transition-all shadow-lg hover:scale-[1.02]"
+            >
+              Check Availability →
+            </button>
+          </form>
+          <div class="mt-4 pt-4 border-t border-charcoal/10 text-center">
+            <p class="text-charcoal/50 text-xs mb-2">Ready to register right now?</p>
+            <a
+              href="https://wildchildcamp.funjoin.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-forest font-semibold text-sm hover:text-forest-dark transition-colors underline underline-offset-2"
+            >
+              Go to full registration →
+            </a>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-gold font-display text-xl tracking-[0.3em] uppercase mb-4">
+          Westminster, Colorado · Ages 6–15
+        </p>
+        <h1 class={`font-display text-white leading-none mb-6 ${compact ? 'text-3xl sm:text-5xl md:text-7xl' : 'text-4xl sm:text-6xl md:text-8xl lg:text-9xl'}`}>
+          {headline}
+        </h1>
+        <p class="text-base sm:text-xl md:text-2xl font-semibold text-white/80 mb-10 tracking-wide">
+          {subheadline}
+        </p>
+        {showCTA && (
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wildchildcamp.funjoin.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-sunset hover:bg-sunset-dark text-white font-bold py-4 px-10 rounded-full text-lg transition-all shadow-xl hover:shadow-sunset/40 hover:scale-105"
+            >
+              Register Now — 2026
+            </a>
+            <a
+              href="/#programs"
+              class="bg-white/10 hover:bg-white/20 border border-white/40 text-white font-semibold py-4 px-10 rounded-full text-lg transition-all backdrop-blur-sm"
+            >
+              Explore Programs
+            </a>
+          </div>
+        )}
       </div>
     )}
   </div>

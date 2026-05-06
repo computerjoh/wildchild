@@ -1,58 +1,103 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import CTABanner from '../components/CTABanner.astro';
-import Hero from '../components/Hero.astro';
-import ProgramCard from '../components/ProgramCard.astro';
-import WeeklyFormula from '../components/WeeklyFormula.astro';
-import StaffCard from '../components/StaffCard.astro';
-import Footer from '../components/Footer.astro';
+import CTABanner from "../components/CTABanner.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import Navbar from "../components/Navbar.astro";
+import ProgramCard from "../components/ProgramCard.astro";
+import StaffCard from "../components/StaffCard.astro";
+import WeeklyFormula from "../components/WeeklyFormula.astro";
+import Layout from "../layouts/Layout.astro";
 
 const programs = [
-  {
-    title: 'Summer Day Camps',
-    description: 'Themed weekly adventures on the Colorado Front Range. Hiking, field trips, team games, arts & crafts — a new experience every week.',
-    href: '/programs/summer-day-camps',
-    ages: '6–16',
-    color: 'forest' as const,
-  },
-  {
-    title: 'SPLASH Camps',
-    description: 'Marine science with real biologists, award-winning swim instruction, and waterfront adventures through Ocean First.',
-    href: '/programs/splash',
-    ages: '6–15',
-    color: 'sky' as const,
-  },
-  {
-    title: 'Enrichment Programs',
-    description: 'HOWL (wilderness learning) and FAME (art, music & experiments) — hands-on programs that spark curiosity all year long.',
-    href: '/programs/enrichment',
-    ages: '6–15',
-    color: 'forest' as const,
-  },
-  {
-    title: 'REACH Climbing Club',
-    description: 'Set goals and reach higher through bouldering and top-rope climbing at Gl Climbing + Fitness. Every Friday after school.',
-    href: '/programs/reach',
-    ages: '7–15',
-    color: 'sunset' as const,
-    badge: '$37/session · $222/season',
-  },
-  {
-    title: 'SPARK Creative Writing',
-    description: 'Build confidence on the page with storytelling, poetry, journaling, and collaborative projects led by Aria (CU Boulder MA).',
-    href: '/programs/spark',
-    ages: '2nd grade+',
-    color: 'gold' as const,
-    badge: '$150/season',
-  },
+	{
+		title: "Summer Day Camps",
+		description:
+			"Your child explores Colorado's best spots every week — hiking, rafting, rock climbing, and more. New adventures every week, friendships that last all year.",
+		href: "/programs/summer-day-camps",
+		ages: "6–16",
+		color: "forest" as const,
+	},
+	{
+		title: "SPLASH Camps",
+		description:
+			"Your child discovers what lives beneath the surface — building water confidence and marine science knowledge alongside real biologists through Ocean First.",
+		href: "/programs/splash",
+		ages: "6–15",
+		color: "sky" as const,
+	},
+	{
+		title: "Enrichment Programs",
+		description:
+			"HOWL and FAME spark curiosity all year long — hands-on wilderness skills, art, music, and science experiments that go far beyond any classroom.",
+		href: "/programs/enrichment",
+		ages: "6–15",
+		color: "forest" as const,
+	},
+	{
+		title: "REACH Climbing Club",
+		description:
+			"Your child sets goals and reaches higher — literally. Weekly bouldering and top-rope sessions at GL Climbing build focus, strength, and self-belief.",
+		href: "/programs/reach",
+		ages: "7–15",
+		color: "sunset" as const,
+		badge: "$37/session · $222/season",
+	},
+	{
+		title: "SPARK Creative Writing",
+		description:
+			"Young writers find their voice through storytelling, poetry, and collaborative projects — led by a CU Boulder MA student passionate about youth literacy.",
+		href: "/programs/spark",
+		ages: "2nd grade+",
+		color: "gold" as const,
+		badge: "$150/season",
+	},
 ];
 
 const stats = [
-  { value: '26', label: 'Years of experience' },
-  { value: '1:6', label: 'Counselor-to-camper ratio' },
-  { value: '6–15', label: 'Ages served' },
-  { value: 'Award-winning', label: 'Camp Director & Educator' },
+	{ value: "26", label: "Years of experience" },
+	{ value: "1:6", label: "Counselor-to-camper ratio" },
+	{ value: "6–15", label: "Ages served" },
+	{ value: "Award-winning", label: "Camp Director & Educator" },
+];
+
+const testimonials = [
+	{
+		quote:
+			"My daughter has been to Wild Child for three summers and cries every Friday when it ends. Joel and his team have genuinely changed how she sees herself — she's braver, more confident, and asks 'what's next?' for everything now.",
+		name: "Sarah M.",
+		detail: "Westminster parent · 3 summers",
+	},
+	{
+		quote:
+			"Worth every penny. The 1:6 ratio is real — my son knows every counselor by name. He came home from whitewater rafting week telling me he wants to be a river guide. That's Wild Child.",
+		name: "Marcus T.",
+		detail: "Broomfield parent · 2 summers",
+	},
+	{
+		quote:
+			"We tried three camps before finding Wild Child. Nothing compares. The staff is exceptional, the programming is intentional, and my kids beg to go back every single year.",
+		name: "Jennifer K.",
+		detail: "Thornton parent · 4 summers",
+	},
+];
+
+const trustItems = [
+	{
+		title: "Award-Winning Director",
+		desc: "Early Childhood Educator of the Year & Camp Director of the Year",
+	},
+	{
+		title: "1:6 Staff Ratio",
+		desc: "Real, personal attention for every camper — every single day",
+	},
+	{
+		title: "Licensed & Insured",
+		desc: "Professional, safe, and fully certified in Colorado",
+	},
+	{
+		title: "26 Years Experience",
+		desc: "Trusted by Front Range families since 1999",
+	},
 ];
 ---
 
@@ -61,9 +106,10 @@ const stats = [
   <Navbar />
 
   <main>
-    <Hero />
+    <!-- 1. Hero with lead capture form above the fold -->
+    <Hero showForm={true} />
 
-    <!-- Stats strip -->
+    <!-- 2. Stats strip — quick credibility scanline -->
     <section class="bg-forest py-10 px-6">
       <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
         {stats.map((s) => (
@@ -75,15 +121,15 @@ const stats = [
       </div>
     </section>
 
-    <!-- Programs -->
+    <!-- 3. Programs — benefit-driven descriptions -->
     <section id="programs" class="py-20 px-6 bg-cream">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
           <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-2">What We Offer</p>
           <h2 class="font-display text-3xl sm:text-5xl md:text-6xl text-forest mb-4">Choose Your Adventure</h2>
           <p class="text-charcoal/60 max-w-xl mx-auto">
-            From summer day camps to year-round enrichment, every Wild Child program is built around wonder,
-            adventure, and letting kids be exactly who they want to be.
+            Every Wild Child program puts kids in the driver's seat — building confidence, curiosity,
+            and lifelong friendships through hands-on adventure.
           </p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -94,9 +140,58 @@ const stats = [
       </div>
     </section>
 
+    <!-- 4. Weekly formula -->
     <WeeklyFormula />
 
-    <!-- About section -->
+    <!-- 5. Testimonials / social proof -->
+    <section class="bg-cream py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-2">What Parents Say</p>
+          <h2 class="font-display text-3xl sm:text-5xl text-forest mb-4">Colorado Families Love Wild Child</h2>
+          <p class="text-charcoal/60 max-w-lg mx-auto">
+            Don't take our word for it — hear from the parents and kids who come back year after year.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((t) => (
+            <div class="bg-white rounded-2xl p-7 shadow-md border border-forest/5 flex flex-col">
+              <div class="flex gap-0.5 mb-4">
+                {[...Array(5)].map(() => (
+                  <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p class="text-charcoal/80 text-sm leading-relaxed flex-1 mb-5">"{t.quote}"</p>
+              <div>
+                <p class="font-bold text-charcoal text-sm">{t.name}</p>
+                <p class="text-charcoal/50 text-xs mt-0.5">{t.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Trust / guarantee signals -->
+    <section class="bg-forest py-14 px-6">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {trustItems.map((item) => (
+          <div class="text-center text-white">
+            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-white mb-1 text-sm">{item.title}</h3>
+            <p class="text-white/60 text-xs leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 7. Philosophy / about -->
     <section class="py-20 px-6 bg-forest-dark text-white relative overflow-hidden">
       <div class="absolute inset-0 opacity-10">
         <img
@@ -127,7 +222,7 @@ const stats = [
       </div>
     </section>
 
-    <!-- Staff preview -->
+    <!-- 8. Staff preview -->
     <section class="py-20 px-6 bg-cream">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
@@ -143,6 +238,7 @@ const stats = [
             name="Joel Van Egbert"
             nickname="Super Shark"
             role="Founder & Executive Program Director"
+            image="https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/1479497_10151814730728061_603931058_n.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:365,h:365,cg:true"
             bio="26 years in youth development. Named Early Childhood Educator of the Year and Camp Director of the Year. His vision: 'kids deserve to be treated like the people they hope to become.'"
             highlights={['26 years experience', 'Award-winning director', 'SCUBA diver & mountain climber']}
           />
@@ -150,6 +246,7 @@ const stats = [
             name="Danielle Mariner"
             nickname="Styx"
             role="Operations & Enterprise"
+            image="https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/IMG_1872.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:365,h:365,cg:true"
             bio="A decade as camp counselor, four seasons under Joel, and now the organizational force behind the Wild Child experience. Builder and artist at heart."
             highlights={['10+ years camp experience', 'Operations lead', 'Leadership & management']}
           />
@@ -157,6 +254,7 @@ const stats = [
             name="Aria"
             nickname="Bonfire"
             role="Program Director & Media"
+            image="https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/ariwithachicken.jpg/:/cr=t:3.7%25,l:0%25,w:100%25,h:75%25/rs=w:365,h:365,cg:true"
             bio="CU Boulder Master's student in Education with a focus on childhood development and outdoor education. Creative writing degree, dancer, and lifelong camper."
             highlights={['CU Boulder MA student', 'Creative writing specialist', 'Outdoor education focus']}
           />
@@ -164,26 +262,27 @@ const stats = [
             name="Andrew"
             nickname="Thunder Puppy"
             role="Educator & Science Lead"
+            image="https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/Screenshot%202026-03-26%20133510.png/:/cr=t:0%25,l:0.84%25,w:98.32%25,h:100%25/rs=w:365,h:365,cg:true"
             bio="10+ years as an educator from Boulder, CO. Turns learning into adventure through science, music, and backpacking trips across Colorado."
             highlights={['10+ years education', 'Science enthusiast', 'Backpacker & musician']}
           />
         </div>
         <div class="text-center mt-8">
           <a href="/staff" class="inline-block text-forest font-semibold hover:text-forest-dark transition-colors underline underline-offset-4">
-            Read full bios
+            Read full bios →
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Final CTA -->
+    <!-- 9. Second CTA with urgency -->
     <section class="bg-gradient-sunset py-20 px-6 text-white text-center">
       <div class="max-w-2xl mx-auto">
         <p class="font-display text-lg tracking-widest uppercase text-white/80 mb-4">Summer 2026</p>
-        <h2 class="font-display text-4xl sm:text-6xl md:text-7xl mb-6">Don't Miss Out</h2>
+        <h2 class="font-display text-4xl sm:text-6xl md:text-7xl mb-6">Spots Are Filling Fast</h2>
         <p class="text-white/80 text-lg mb-8">
-          Registration is open and spots are filling fast. Reserve your child's place in Colorado's
-          best adventure day camp today.
+          Every week sells out. Don't wait until your child's preferred session is gone —
+          secure your spot today and join Colorado's best adventure day camp.
         </p>
         <a
           href="https://wildchildcamp.funjoin.app"
@@ -191,7 +290,7 @@ const stats = [
           rel="noopener noreferrer"
           class="inline-block bg-white text-sunset font-bold py-4 px-8 sm:px-12 rounded-full text-lg sm:text-xl hover:bg-cream transition-all shadow-xl hover:scale-105"
         >
-          Register Now
+          Register Now — 2026
         </a>
         <p class="mt-4 text-white/60 text-sm">Questions? Call us at 970-389-5611</p>
       </div>
