@@ -1,82 +1,26 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/logo.webp";
+import { benefits } from "../data/benefits";
+import { programs } from "../data/programs";
+import { testimonials } from "../data/testimonials";
+import { trustItems } from "../data/trust";
 import Layout from "../layouts/Layout.astro";
 
 const FUNJOIN_URL = "https://wildchildcamp.funjoin.app/explore-offerings";
 const MAIN_SITE_URL = "https://wildchild.camp";
-
-const benefits = [
-	{
-		icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-		title: "Weekly Outdoor Adventures",
-		sub: "New Colorado destination every week",
-	},
-	{
-		icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
-		title: "1:6 Staff Ratio",
-		sub: "Real attention for every camper",
-	},
-	{
-		icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
-		title: "Award-Winning Director",
-		sub: "Director & Educator of the Year",
-	},
-	{
-		icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
-		title: "26 Years Running",
-		sub: "Trusted by families since 1999",
-	},
-];
-
-const testimonials = [
-	{
-		quote:
-			"You are amazing at what you do and your passion and love for camps shows!!! My daughters cannot wait to be back in your camps!!!",
-		name: "Jaclyn U.",
-	},
-	{
-		quote:
-			"Worth every penny. The 1:6 ratio is real — my son knows every counselor by name. He came home from whitewater rafting week telling me he wants to be a river guide. That's Wild Child.",
-		name: "Marcus T.",
-	},
-	{
-		quote:
-			"We tried three camps before finding Wild Child. Nothing compares. The staff is exceptional, the programming is intentional, and my kids beg to go back every single year.",
-		name: "Jennifer K.",
-	},
-];
-
-const trustItems = [
-	{
-		title: "Award-Winning Director",
-		desc: "Early Childhood Educator of the Year & Camp Director of the Year",
-	},
-	{
-		title: "1:6 Staff Ratio",
-		desc: "Personal attention for every camper — every single day",
-	},
-	{
-		title: "Licensed & Insured",
-		desc: "Professional, safe, and fully certified in Colorado",
-	},
-	{
-		title: "26 Years Experience",
-		desc: "Trusted by Front Range families since 1999",
-	},
-];
 ---
 
 <Layout
-  title="Wild Child Day Camps — Reserve Your Summer 2026 Spot"
-  description="Colorado's #1 adventure day camp for kids ages 6–15. Hiking, rafting, climbing & more. Reserve your Summer 2026 spot today — spots fill fast."
+  title="Wild Child Day Camps: Reserve Your Summer 2026 Spot"
+  description="Colorado's #1 adventure day camp for kids ages 6–15. Hiking, rafting, climbing & more. Reserve your Summer 2026 spot today. Spots fill fast."
 >
 
     <!-- ── 1. HEADER ── -->
     <header class="bg-espresso px-6 py-3 sticky top-0 z-50 shadow-lg border-b border-white/5">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href={MAIN_SITE_URL} rel="noopener noreferrer">
-          <Image src={logo} alt="Wild Child Day Camps" class="h-14 w-auto object-contain" />
+          <Image src={logo} alt="Wild Child Day Camps" class="h-16 w-auto object-contain" />
         </a>
         <div class="flex items-center gap-4">
           <!-- Social links -->
@@ -115,7 +59,7 @@ const trustItems = [
       </div>
     </header>
 
-    <!-- ── 2. HERO — headline + form above the fold ── -->
+    <!-- ── 2. HERO: headline + form above the fold ── -->
     <section class="relative bg-espresso text-white overflow-hidden min-h-[85vh] flex items-center">
       <img
         src="https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/IMG_6350-e023c33.jpeg/:/rs=w:1200,m"
@@ -135,13 +79,13 @@ const trustItems = [
               Your Kid's Best<br />Summer<br />Starts Here
             </h1>
             <p class="text-white/80 text-lg mb-8 leading-relaxed max-w-md">
-              Colorado's #1 adventure day camp — hiking, rafting, rock climbing, marine science, and friendships that last all year.
+              Colorado's #1 adventure day camp: hiking, rafting, rock climbing, marine science, and friendships that last all year.
             </p>
             <ul class="space-y-3 mb-8">
               {[
-                '1:6 counselor-to-camper ratio — real attention, every day',
+                '1:6 counselor-to-camper ratio, with real attention every day',
                 'Award-winning director with 26 years in youth development',
-                'Licensed & insured — trusted by Front Range families since 1999',
+                'Licensed & insured, trusted by Front Range families since 1999',
               ].map((item) => (
                 <li class="flex items-start gap-3 text-white/90 text-sm">
                   <svg class="w-5 h-5 text-tangerine mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -166,7 +110,7 @@ const trustItems = [
               <h2 class="font-display text-4xl sm:text-5xl text-espresso leading-none mb-6">Ready to Register?</h2>
               <ul class="space-y-3 mb-8">
                 {[
-                  'Browse all programs — day camps, marine science, climbing & more',
+                  'Browse all programs: day camps, marine science, climbing & more',
                   'Pick your weeks and enroll directly in our registration system',
                   'Secure your child\'s spot before sessions sell out',
                 ].map((item) => (
@@ -197,7 +141,7 @@ const trustItems = [
               >
                 Learn more at wildchild.camp
               </a>
-              <p class="text-center text-carbon/40 text-xs mt-4">Every week sells out — spots go fast.</p>
+              <p class="text-center text-carbon/40 text-xs mt-4">Every week sells out. Spots go fast.</p>
             </div>
           </div>
 
@@ -205,7 +149,7 @@ const trustItems = [
       </div>
     </section>
 
-    <!-- ── 3. BENEFITS STRIP — scannable key features ── -->
+    <!-- ── 3. BENEFITS STRIP: scannable key features ── -->
     <section class="bg-aqua py-12 px-6">
       <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {benefits.map((b) => (
@@ -222,7 +166,7 @@ const trustItems = [
       </div>
     </section>
 
-    <!-- ── 4. AUTHORITY QUOTE — social proof from an expert ── -->
+    <!-- ── 4. AUTHORITY QUOTE: social proof from an expert ── -->
     <section class="py-20 px-6 bg-white">
       <div class="max-w-4xl mx-auto text-center">
         <img
@@ -234,7 +178,7 @@ const trustItems = [
           "Kids deserve to be treated like the people they hope to become."
         </blockquote>
         <p class="text-carbon/60 text-sm font-medium">
-          Joel Van Egbert — Founder & Executive Director
+          Joel Van Egbert, Founder & Executive Director
         </p>
         <p class="text-ember font-bold text-sm mt-1">
           Early Childhood Educator of the Year · Camp Director of the Year
@@ -242,7 +186,7 @@ const trustItems = [
       </div>
     </section>
 
-    <!-- ── 5. PROGRAMS PREVIEW — what's included ── -->
+    <!-- ── 5. PROGRAMS PREVIEW: what's included ── -->
     <section class="py-16 px-6 bg-[#FFF8F0]">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-10">
@@ -250,14 +194,7 @@ const trustItems = [
           <h2 class="font-display text-4xl sm:text-5xl text-espresso">Every Week Is an Adventure</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { name: "Summer Day Camps", ages: "6–16", desc: "Hiking, rafting, climbing & more — new destination every week" },
-            { name: "SPLASH Marine Science", ages: "6–15", desc: "Underwater discovery with real biologists from Ocean First" },
-            { name: "Enrichment Programs", ages: "6–15", desc: "HOWL & FAME — hands-on wilderness skills, art, music, science" },
-            { name: "REACH Climbing Club", ages: "7–15", desc: "Weekly bouldering & top-rope sessions at GL Climbing" },
-            { name: "SPARK Creative Writing", ages: "2nd grade+", desc: "Storytelling and poetry led by a CU Boulder MA student" },
-            { name: "And More...", ages: "6–15", desc: "Browse all sessions and enroll directly " },
-          ].map((p) => (
+          {programs.map((p) => (
             <a
               href={FUNJOIN_URL}
               target="_blank"
@@ -287,14 +224,14 @@ const trustItems = [
       </div>
     </section>
 
-    <!-- ── 6. TESTIMONIALS — reviews & ratings from users ── -->
+    <!-- ── 6. TESTIMONIALS: reviews & ratings from users ── -->
     <section class="py-20 px-6 bg-white">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">What Parents Say</p>
           <h2 class="font-display text-4xl sm:text-5xl text-espresso mb-4">Colorado Families Love Wild Child</h2>
           <p class="text-carbon/60 max-w-lg mx-auto text-sm">
-            Don't take our word for it — hear from the parents and kids who come back year after year.
+            Don't take our word for it. Hear from the parents and kids who come back year after year.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -318,7 +255,7 @@ const trustItems = [
       </div>
     </section>
 
-    <!-- ── 7. TRUST / GUARANTEES — security & reassurances ── -->
+    <!-- ── 7. TRUST / GUARANTEES: security & reassurances ── -->
     <section class="bg-espresso py-16 px-6">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-10">
@@ -340,13 +277,13 @@ const trustItems = [
       </div>
     </section>
 
-    <!-- ── 8. SECOND CTA — urgency-driven, bottom of page ── -->
+    <!-- ── 8. SECOND CTA: urgency-driven, bottom of page ── -->
     <section class="bg-gradient-ember py-20 px-6 text-white text-center">
       <div class="max-w-2xl mx-auto">
         <p class="font-display text-lg tracking-widest uppercase text-white/80 mb-4">Summer 2026</p>
         <h2 class="font-display text-5xl sm:text-6xl md:text-7xl mb-6">Spots Are Going Fast</h2>
         <p class="text-white/80 text-lg mb-8 leading-relaxed">
-          Every week sells out. Don't wait until your child's preferred session is gone — secure their spot today.
+          Every week sells out. Don't wait until your child's preferred session is gone. Secure their spot today.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a

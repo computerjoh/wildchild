@@ -1,0 +1,14 @@
+export const testimonials = [
+	{
+		quote: "You are amazing at what you do and your passion and love for camps shows!!! My daughters cannot wait to be back in your camps!!!",
+		name: "Jaclyn U.",
+	},
+	{
+		quote: "Worth every penny. The 1:6 ratio is real. My son knows every counselor by name. He came home from whitewater rafting week telling me he wants to be a river guide. That's Wild Child.",
+		name: "Marcus T.",
+	},
+	{
+		quote: "We tried three camps before finding Wild Child. Nothing compares. The staff is exceptional, the programming is intentional, and my kids beg to go back every single year.",
+		name: "Jennifer K.",
+	},
+];
