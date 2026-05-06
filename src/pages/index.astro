@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import joel from "../assets/joel.webp";
+import kids from "../assets/kids.webp";
 import logo from "../assets/logo.webp";
 import { benefits } from "../data/benefits";
 import { programs } from "../data/programs";
@@ -61,8 +63,8 @@ const MAIN_SITE_URL = "https://wildchild.camp";
 
     <!-- ── 2. HERO: headline + form above the fold ── -->
     <section class="relative bg-boulder text-white overflow-hidden min-h-screen flex items-center">
-      <img
-        src="https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/IMG_6350-e023c33.jpeg/:/rs=w:1200,m"
+      <Image
+        src={kids}
         alt="Kids on a mountain summit in Colorado"
         class="absolute inset-0 w-full h-full object-cover opacity-20"
         loading="eager"
@@ -169,8 +171,8 @@ const MAIN_SITE_URL = "https://wildchild.camp";
     <!-- ── 4. AUTHORITY QUOTE: social proof from an expert ── -->
     <section class="py-20 px-6 bg-white">
       <div class="max-w-4xl mx-auto text-center">
-        <img
-          src="https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/1479497_10151814730728061_603931058_n.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:200,h:200,cg:true"
+        <Image
+          src={joel}
           alt="Joel Van Egbert, Wild Child Founder"
           class="w-24 h-24 rounded-full object-cover mx-auto mb-6 border-4 border-tangerine shadow-lg"
         />
