@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import joel from "../assets/joel.webp";
 import kids from "../assets/kids.webp";
 import logo from "../assets/logo.webp";
@@ -11,18 +11,28 @@ import Layout from "../layouts/Layout.astro";
 
 const FUNJOIN_URL = "https://wildchildcamp.funjoin.app/explore-offerings";
 const MAIN_SITE_URL = "https://wildchild.camp";
+
+const kidsPreload = await getImage({ src: kids, format: "webp", quality: 60 });
 ---
 
 <Layout
   title="Wild Child Day Camps: Reserve Your Summer 2026 Spot"
   description="Colorado's #1 adventure day camp for kids ages 6–15. Hiking, rafting, climbing & more. Reserve your Summer 2026 spot today. Spots fill fast."
 >
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={kidsPreload.src}
+    type="image/webp"
+    fetchpriority="high"
+  />
 
     <!-- ── 1. HEADER ── -->
     <header class="bg-boulder px-6 py-3 sticky top-0 z-50 shadow-lg border-b border-white/5">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href={MAIN_SITE_URL} rel="noopener noreferrer">
-          <Image src={logo} alt="Wild Child Day Camps" class="h-16 w-auto object-contain" />
+          <Image src={logo} alt="Wild Child Day Camps" class="h-16 w-auto object-contain" loading="eager" quality={70} />
         </a>
         <div class="flex items-center gap-4">
           <!-- Social links -->
@@ -68,6 +78,8 @@ const MAIN_SITE_URL = "https://wildchild.camp";
         alt="Kids on a mountain summit in Colorado"
         class="absolute inset-0 w-full h-full object-cover opacity-20"
         loading="eager"
+        fetchpriority="high"
+        quality={60}
       />
       <div class="relative z-10 w-full max-w-6xl mx-auto px-6 py-16 lg:py-24">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
