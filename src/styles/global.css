@@ -17,4 +17,14 @@
 
   --background-image-gradient-forest: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
   --background-image-gradient-sunset: linear-gradient(135deg, #E05C3A 0%, #F4845F 100%);
+
+  /* Landing page palette — Colorado Wilderness */
+  --color-espresso: #1C3829;
+  --color-aqua: #4A7C59;
+  --color-amber: #F0A500;
+  --color-ember: #C02A0E;
+  --color-ember-dark: #A02208;
+  --color-carbon: #1E1E1E;
+  --color-tangerine: #F9A571;
+  --background-image-gradient-ember: linear-gradient(135deg, #A02208 0%, #C02A0E 100%);
 }
