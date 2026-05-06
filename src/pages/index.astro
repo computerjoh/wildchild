@@ -1,5 +1,7 @@
 ---
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import logo from "../assets/logo.webp";
 
 const FUNJOIN_URL = "https://wildchildcamp.funjoin.app/explore-offerings";
 const MAIN_SITE_URL = "https://wildchild.camp";
@@ -65,31 +67,16 @@ const trustItems = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wild Child Day Camps — Reserve Your Summer 2026 Spot</title>
-    <meta name="description" content="Colorado's #1 adventure day camp for kids ages 6–15. Hiking, rafting, climbing & more. Reserve your Summer 2026 spot today — spots fill fast." />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon_48x48.png" />
-    <link rel="icon" type="image/png" sizes="64x64" href="/favicon_64x64.png" />
-    <link rel="apple-touch-icon" sizes="128x128" href="/favicon_128x128.png" />
-    <link rel="icon" type="image/png" sizes="256x256" href="/favicon_256x256.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  </head>
-
-  <body class="font-sans text-carbon bg-white antialiased">
+<Layout
+  title="Wild Child Day Camps — Reserve Your Summer 2026 Spot"
+  description="Colorado's #1 adventure day camp for kids ages 6–15. Hiking, rafting, climbing & more. Reserve your Summer 2026 spot today — spots fill fast."
+>
 
     <!-- ── 1. MINIMAL HEADER — logo + phone only, no nav distractions ── -->
     <header class="bg-espresso px-6 py-4 sticky top-0 z-50 shadow-lg">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
           <a href={MAIN_SITE_URL} target="_blank" rel="noopener noreferrer">
-            <img src="/logo.webp" alt="Wild Child Day Camps" class="h-20 w-auto object-contain" />
+            <Image src={logo} alt="Wild Child Day Camps" class="h-20 w-auto object-contain" />
           </a>
         <div class="flex items-center gap-5">
           <!-- Social links -->
@@ -371,7 +358,7 @@ const trustItems = [
     <footer class="bg-carbon text-white py-10 px-6">
       <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-4">
-          <img src="/logo.webp" alt="Wild Child Day Camps" class="h-10 w-auto object-contain" />
+          <Image src={logo} alt="Wild Child Day Camps" class="h-10 w-auto object-contain" />
           <address class="not-italic text-white/50 text-xs leading-relaxed">
             Woodrow Wilson Academy<br />
             8300 W 94th Ave · Westminster, CO 80021
@@ -388,5 +375,4 @@ const trustItems = [
       </div>
     </footer>
 
-  </body>
-</html>
+</Layout>
