@@ -1,0 +1,54 @@
+---
+import MobileNav from './MobileNav.tsx';
+
+const navLinks = [
+  { label: 'Programs', href: '#programs' },
+  { label: 'Meet Our Staff', href: '/staff' },
+  { label: 'Parent Info', href: '/parents' },
+  { label: "We're Hiring!", href: '/hiring' },
+];
+---
+
+<header class="bg-forest-dark sticky top-0 z-40 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-20 relative">
+      <!-- Logo -->
+      <a href="/" class="flex items-center group">
+        <img
+          src="/logo.webp"
+          alt="Wild Child Day Camps"
+          class="h-16 w-auto object-contain"
+        />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-white/80 hover:text-white font-medium text-sm transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="tel:9703895611"
+          class="text-forest-light hover:text-gold text-sm font-medium transition-colors"
+        >
+          970-389-5611
+        </a>
+        <a
+          href="https://wildchildcamp.funjoin.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-sunset hover:bg-sunset-dark text-white font-bold py-2 px-5 rounded-full text-sm transition-colors shadow-md"
+        >
+          Register Now
+        </a>
+      </nav>
+
+      <!-- Mobile nav (React island) -->
+      <MobileNav client:load />
+    </div>
+  </div>
+</header>

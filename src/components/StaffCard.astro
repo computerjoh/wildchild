@@ -1,0 +1,44 @@
+---
+interface Props {
+  name: string;
+  nickname: string;
+  role: string;
+  bio: string;
+  highlights?: string[];
+}
+
+const { name, nickname, role, bio, highlights = [] } = Astro.props;
+
+const initials = name.split(' ').map((w) => w[0]).join('').slice(0, 2);
+---
+
+<div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+  <div class="bg-gradient-forest h-3" />
+
+  <div class="p-6">
+    <div class="w-14 h-14 rounded-full bg-forest flex items-center justify-center mb-4">
+      <span class="font-display text-xl text-white tracking-wide">{initials}</span>
+    </div>
+
+    <div class="mb-1">
+      <span class="text-xs font-bold uppercase tracking-widest text-sunset bg-sunset/10 px-2 py-0.5 rounded-full">
+        "{nickname}"
+      </span>
+    </div>
+
+    <h3 class="text-xl font-bold text-charcoal mt-2">{name}</h3>
+    <p class="text-forest font-semibold text-sm mb-3">{role}</p>
+    <p class="text-charcoal/60 text-sm leading-relaxed">{bio}</p>
+
+    {highlights.length > 0 && (
+      <ul class="mt-4 space-y-1">
+        {highlights.map((h) => (
+          <li class="flex items-center gap-2 text-xs text-charcoal/70">
+            <span class="w-1 h-1 rounded-full bg-forest flex-shrink-0" />
+            {h}
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>

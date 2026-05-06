@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #2D6A4F;
+  --color-forest-dark: #1B4332;
+  --color-forest-light: #40916C;
+  --color-sky: #0077B6;
+  --color-sky-light: #00B4D8;
+  --color-sunset: #F4845F;
+  --color-sunset-dark: #E05C3A;
+  --color-gold: #F9C74F;
+  --color-cream: #FAFAF5;
+  --color-charcoal: #1A1A1A;
+
+  --font-family-display: "Bebas Neue", sans-serif;
+  --font-family-sans: "Poppins", system-ui, sans-serif;
+
+  --background-image-gradient-forest: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
+  --background-image-gradient-sunset: linear-gradient(135deg, #E05C3A 0%, #F4845F 100%);
+}

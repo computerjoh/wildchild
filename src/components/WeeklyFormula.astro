@@ -1,0 +1,46 @@
+---
+const days = [
+  { day: 'Mon', type: 'Adventure', desc: 'Themed adventure trip', color: 'bg-forest text-white' },
+  { day: 'Tue', type: 'Swimming', desc: 'Pool or waterpark day', color: 'bg-sky text-white' },
+  { day: 'Wed', type: 'Outdoor Ed', desc: 'Nature & learning', color: 'bg-forest-light text-white' },
+  { day: 'Thu', type: 'Swimming', desc: 'Pool or waterpark day', color: 'bg-sky text-white' },
+  { day: 'Fri', type: 'Adventure', desc: 'Themed adventure trip', color: 'bg-forest text-white' },
+];
+---
+
+<section class="bg-white py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-2">The Wild Child Week</p>
+      <h2 class="font-display text-3xl sm:text-5xl text-forest mb-4">What a Week Looks Like</h2>
+      <p class="text-charcoal/60 max-w-xl mx-auto">
+        Every week has a theme — but the formula is consistent. Two swim days, one outdoor education
+        day, and two full-day adventure trips.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-10">
+      {days.map((d) => (
+        <div class={`${d.color} rounded-2xl p-4 text-center shadow-md`}>
+          <div class="font-display text-3xl tracking-wide">{d.day}</div>
+          <div class="text-xs font-bold uppercase tracking-wider mt-2 opacity-90">{d.type}</div>
+          <div class="text-xs mt-2 opacity-70 hidden sm:block leading-snug">{d.desc}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-cream rounded-2xl p-6 border border-forest/10">
+      <p class="text-center text-sm font-semibold text-charcoal/50 uppercase tracking-widest mb-4">Adventure Examples</p>
+      <div class="flex flex-wrap justify-center gap-2">
+        {[
+          'Whitewater Rafting', 'Rock Climbing', 'Canoeing', 'Horseback Riding',
+          'Train Rides', 'Mine Tours', 'Mountain Summits', 'Zoos & Museums', 'Amusement Parks',
+        ].map((item) => (
+          <span class="bg-forest/10 text-forest text-sm font-medium px-4 py-1.5 rounded-full">
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

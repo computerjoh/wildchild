@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CTABanner from '../components/CTABanner.astro';
+import Hero from '../components/Hero.astro';
+import StaffCard from '../components/StaffCard.astro';
+import Footer from '../components/Footer.astro';
+
+const staff = [
+  {
+    name: 'Joel Van Egbert',
+    nickname: 'Super Shark',
+    role: 'Founder & Executive Program Director',
+    bio: "Joel has 26 years in youth development and was named both Early Childhood Educator of the Year and Camp Director of the Year. His guiding philosophy: 'kids deserve to be treated like the people they hope to become.' Outside of camp, Joel SCUBA dives, climbs mountains, and skis with his family — Orca (Lori), Riptide, and Badger-Badger.",
+    highlights: [
+      '26 years in youth development',
+      'Early Childhood Educator of the Year',
+      'Camp Director of the Year',
+      'SCUBA diver & mountain climber',
+    ],
+  },
+  {
+    name: 'Danielle Mariner',
+    nickname: 'Styx',
+    role: 'Operations & Enterprise',
+    bio: "With a decade as a camp counselor and four seasons working directly under Joel, Danielle brings unmatched operational expertise and genuine love for the Wild Child mission. She describes herself as 'both a builder and an artist at heart.' When she's not keeping the machine running, she's cooking, baking, weightlifting, dancing, hiking, or planning her next trip.",
+    highlights: [
+      '10+ years camp experience',
+      '4 seasons under Joel Van Egbert',
+      'Executive administration & operations',
+      'Leadership & management background',
+    ],
+  },
+  {
+    name: 'Aria',
+    nickname: 'Bonfire',
+    role: 'Program Director & Media Coordinator',
+    bio: "A CU Boulder Master's student studying Education with a focus on childhood development and outdoor education, Aria brings creative vision and academic rigor to Wild Child programming. She has a Creative Writing degree and experience as a dance teacher, after-school educator, and student teacher. She leads the SPARK Creative Writing program and handles Wild Child's media.",
+    highlights: [
+      'CU Boulder MA student — Education',
+      'Creative Writing degree',
+      'SPARK Creative Writing program lead',
+      'Dance teacher & outdoor educator',
+    ],
+  },
+  {
+    name: 'Andrew',
+    nickname: 'Thunder Puppy',
+    role: 'Educator & Science Lead',
+    bio: 'Based in Boulder, CO, Andrew brings over 10 years of experience as an educator and science enthusiast who knows how to turn learning into adventure. He volunteers at local schools, goes backpacking across Colorado, and plays music. At Wild Child, he brings the wonder of science to every camp week.',
+    highlights: [
+      '10+ years education experience',
+      'Science & outdoor adventure focus',
+      'School volunteer & community builder',
+      'Musician & backpacker',
+    ],
+  },
+];
+---
+
+<Layout
+  title="Meet Our Staff | Wild Child Colorado"
+  description="Meet the Wild Child Day Camps team — award-winning educators and outdoor adventure specialists who live and breathe youth development."
+>
+  <CTABanner />
+  <Navbar />
+
+  <main>
+    <Hero
+      headline="Meet Our Team"
+      subheadline="People Who Love This Work"
+      compact={true}
+      imageSrc="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80"
+      imageAlt="Camp counselors with kids outdoors"
+      showCTA={false}
+    />
+
+    <section class="py-20 px-6 bg-cream">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-2">The Wild Child Crew</p>
+          <h2 class="font-display text-3xl sm:text-5xl text-forest mb-4">Every Nickname Earned</h2>
+          <p class="text-charcoal/60 max-w-xl mx-auto">
+            Our team of award-winning educators, outdoor specialists, and genuine adventure-lovers
+            brings every camp week to life. These are people who chose this work because they love it.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {staff.map((s) => (
+            <StaffCard {...s} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Hiring CTA -->
+    <section class="bg-forest py-16 px-6 text-center text-white">
+      <h2 class="font-display text-5xl mb-4">Want to Join the Crew?</h2>
+      <p class="text-white/70 mb-8 max-w-xl mx-auto">
+        We're always looking for passionate, experienced educators and outdoor specialists.
+        If Wild Child sounds like your kind of place, we'd love to hear from you.
+      </p>
+      <a
+        href="/hiring"
+        class="inline-block bg-gold hover:bg-gold/80 text-charcoal font-bold py-4 px-10 rounded-full text-lg transition-all"
+      >
+        View Open Positions
+      </a>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

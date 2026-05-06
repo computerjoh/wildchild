@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import Hero from '../../components/Hero.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Enrichment Programs | Wild Child Colorado"
+  description="Wild Child Enrichment Programs — HOWL (wilderness learning) and FAME (art, music & experiments). Year-round hands-on learning for curious kids."
+>
+  <CTABanner />
+  <Navbar />
+
+  <main>
+    <Hero
+      headline="Enrichment Programs"
+      subheadline="Hands-On Learning · All Year · Colorado"
+      compact={true}
+      imageSrc="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=1600&q=80"
+      imageAlt="Kids exploring nature and doing art projects"
+      showCTA={false}
+    />
+
+    <section class="py-20 px-6 bg-cream">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-2">Year-Round Learning</p>
+          <h2 class="font-display text-3xl sm:text-5xl text-forest mb-4">Two Paths, One Mission</h2>
+          <p class="text-charcoal/60 max-w-xl mx-auto">
+            Wild Child's enrichment programs help young people dream big, be brave, and go wild
+            through intentional, hands-on learning — all year long.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- HOWL -->
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all">
+            <div class="bg-gradient-forest p-8 text-white">
+              <h3 class="font-display text-4xl sm:text-5xl mb-2">HOWL</h3>
+              <p class="text-forest-light font-semibold text-sm uppercase tracking-wider">
+                Hands-On Wilderness Learning
+              </p>
+            </div>
+            <div class="p-8">
+              <p class="text-charcoal/70 leading-relaxed mb-6">
+                A nature-focused curriculum that takes campers into the wild. Hiking, nature immersion,
+                field trips, and an integrated approach to science, creativity, and outdoor exploration
+                throughout Colorado.
+              </p>
+              <ul class="space-y-2 mb-6">
+                {['Hiking & trail exploration', 'Colorado nature immersion', 'Short & long field trips', 'Science integration', 'Environmental stewardship'].map((item) => (
+                  <li class="flex items-center gap-2 text-sm text-charcoal/70">
+                    <span class="w-1 h-1 rounded-full bg-forest flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://wildchildcamp.funjoin.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-forest hover:bg-forest-dark text-white font-bold py-3 px-8 rounded-full transition-colors"
+              >
+                Register for HOWL
+              </a>
+            </div>
+          </div>
+
+          <!-- FAME -->
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all">
+            <div class="bg-sunset p-8 text-white">
+              <h3 class="font-display text-4xl sm:text-5xl mb-2">FAME</h3>
+              <p class="text-white/80 font-semibold text-sm uppercase tracking-wider">
+                Friends, Art, Music & Epic Experiments
+              </p>
+            </div>
+            <div class="p-8">
+              <p class="text-charcoal/70 leading-relaxed mb-6">
+                A creative, collaborative program where participants dive into visual arts, imaginative
+                play, music, technology projects, and scientific experiments — all while making
+                lifelong friendships.
+              </p>
+              <ul class="space-y-2 mb-6">
+                {['Visual arts & crafts', 'Music exploration', 'Tech & coding projects', 'Scientific experiments', 'Collaborative group work'].map((item) => (
+                  <li class="flex items-center gap-2 text-sm text-charcoal/70">
+                    <span class="w-1 h-1 rounded-full bg-sunset flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://wildchildcamp.funjoin.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-sunset hover:bg-sunset-dark text-white font-bold py-3 px-8 rounded-full transition-colors"
+              >
+                Register for FAME
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 bg-white rounded-2xl p-6 border border-forest/10 text-sm text-charcoal/60 text-center">
+          Partners with Longmont Little HSE and other homeschool enrichment providers.
+          <a href="/parents" class="text-forest hover:underline ml-1">Contact us for details</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

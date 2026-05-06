@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import Hero from '../../components/Hero.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="REACH Climbing Club | Wild Child Colorado"
+  description="REACH Climbing Club — bouldering & top-rope climbing for kids ages 7–15. Every Friday at Gl Climbing + Fitness. $37/session or $222/season."
+>
+  <CTABanner />
+  <Navbar />
+
+  <main>
+    <Hero
+      headline="REACH Climbing Club"
+      subheadline="Set Goals · Challenge Yourself · Reach Higher"
+      compact={true}
+      imageSrc="https://images.unsplash.com/photo-1522163182402-834f871fd851?w=1600&q=80"
+      imageAlt="Kids rock climbing in a gym"
+      showCTA={false}
+    />
+
+    <section class="py-20 px-6 bg-cream">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <div>
+            <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-2">About the Program</p>
+            <h2 class="font-display text-5xl text-forest mb-6">Climb Further Than You Think You Can</h2>
+            <p class="text-charcoal/70 leading-relaxed mb-4">
+              Wild Child REACH is an ongoing climbing program for adventurers ages 7–15 who are ready
+              to set goals, challenge themselves, and reach higher through bouldering and top-rope climbing.
+            </p>
+            <p class="text-charcoal/70 leading-relaxed mb-6">
+              Each season runs on most Fridays at Gl Climbing + Fitness. Transportation from
+              Woodrow Wilson Academy is included. Non-WWA families may drop off directly at the gym.
+            </p>
+
+            <div class="space-y-3 mb-8">
+              {[
+                { label: 'When', value: 'Most Fridays, 3:05 PM – 5:00 PM' },
+                { label: 'Where', value: 'Gl Climbing + Fitness (transport from WWA included)' },
+                { label: 'Ages', value: '7–15 years old' },
+                { label: 'Skills', value: 'Bouldering & top-rope climbing' },
+                { label: 'Gear', value: 'All equipment provided; personal gear welcome' },
+              ].map((item) => (
+                <div class="flex items-start gap-4 bg-white rounded-xl p-4 shadow-sm">
+                  <div class="w-1.5 h-1.5 rounded-full bg-forest mt-1.5 flex-shrink-0" />
+                  <div>
+                    <div class="text-xs font-bold text-charcoal/40 uppercase tracking-wider">{item.label}</div>
+                    <div class="text-charcoal font-medium text-sm mt-0.5">{item.value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Pricing -->
+          <div>
+            <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-4">Pricing</p>
+            <div class="space-y-4">
+              <div class="bg-white rounded-2xl shadow-md border-2 border-forest/10 p-6">
+                <div class="text-3xl font-display text-forest mb-1">$37</div>
+                <div class="text-charcoal font-semibold">Single Session</div>
+                <p class="text-charcoal/60 text-sm mt-2">Drop in for one Friday — great for trying it out.</p>
+              </div>
+              <div class="bg-forest rounded-2xl shadow-md p-6 text-white relative overflow-hidden">
+                <div class="absolute top-3 right-3 bg-gold text-charcoal text-xs font-bold px-2 py-0.5 rounded-full">
+                  Best Value
+                </div>
+                <div class="text-3xl font-display mb-1">$222</div>
+                <div class="font-semibold">Full Season (6 sessions)</div>
+                <p class="text-white/70 text-sm mt-2">
+                  Save $30 vs. individual sessions. Includes all 6 climbs in the season.
+                </p>
+                <p class="text-white/60 text-xs mt-3">Note: No make-ups for missed sessions.</p>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a
+                href="https://wildchildcamp.funjoin.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block w-full text-center bg-sunset hover:bg-sunset-dark text-white font-bold py-4 px-8 rounded-full text-lg transition-colors"
+              >
+                Register for REACH
+              </a>
+              <p class="text-center text-charcoal/50 text-xs mt-3">
+                Questions? Call 970-389-5611
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CTABanner from '../components/CTABanner.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+
+const programs = [
+  { name: 'Summer Day Camps', href: '/programs/summer-day-camps' },
+  { name: 'SPLASH Camps', href: '/programs/splash' },
+  { name: 'Enrichment (HOWL & FAME)', href: '/programs/enrichment' },
+  { name: 'REACH Climbing Club', href: '/programs/reach' },
+  { name: 'SPARK Creative Writing', href: '/programs/spark' },
+];
+
+const faq = [
+  {
+    q: 'Where does camp take place?',
+    a: 'Our base is Woodrow Wilson Academy, 8300 W 94th Ave, Westminster, CO 80021. Campers depart from here daily for adventures across the Front Range.',
+  },
+  {
+    q: 'What is the counselor-to-camper ratio?',
+    a: 'We maintain a 1:6 counselor-to-camper ratio throughout all programs to ensure every child gets personal attention.',
+  },
+  {
+    q: 'What ages do you serve?',
+    a: 'Our summer day camps serve ages 6–16. Individual programs like REACH (7–15) and SPARK (2nd grade+) have their own age requirements.',
+  },
+  {
+    q: 'When does registration open?',
+    a: '2026 registration is now live at wildchildcamp.funjoin.app. We fill up fast — register early to hold your spot.',
+  },
+];
+---
+
+<Layout
+  title="Parent Information | Wild Child Colorado"
+  description="Everything parents need to know about Wild Child Day Camps — info packets, policies, registration, and contact details."
+>
+  <CTABanner />
+  <Navbar />
+
+  <main>
+    <Hero
+      headline="Parent Info"
+      subheadline="Everything You Need to Know"
+      compact={true}
+      imageSrc="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80"
+      imageAlt="Happy kids at summer camp"
+      showCTA={false}
+    />
+
+    <section class="py-20 px-6 bg-cream">
+      <div class="max-w-4xl mx-auto">
+        <!-- Info Packet -->
+        <div class="bg-forest rounded-2xl p-8 text-white text-center mb-12 shadow-xl">
+          <h2 class="font-display text-4xl mb-3">2026 Parent Information Packet</h2>
+          <p class="text-white/70 mb-6 max-w-md mx-auto">
+            Everything you need to know about Wild Child Day Camps — packing list, policies,
+            schedules, and more — in one comprehensive PDF.
+          </p>
+          <a
+            href="https://wildchild.camp/parent-information-packet"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-white text-forest font-bold py-3 px-8 rounded-full hover:bg-cream transition-colors"
+          >
+            Download Packet (PDF)
+          </a>
+          <p class="text-white/40 text-xs mt-3">
+            Additional policies coming soon — check back regularly.
+          </p>
+        </div>
+
+        <!-- Programs list -->
+        <div class="mb-12">
+          <h2 class="font-display text-4xl text-forest mb-6">Our Programs</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {programs.map((p) => (
+              <a
+                href={p.href}
+                class="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all border border-forest/10"
+              >
+                <span class="w-2 h-2 rounded-full bg-forest flex-shrink-0" />
+                <span class="font-semibold text-charcoal">{p.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-12">
+          <h2 class="font-display text-4xl text-forest mb-6">Common Questions</h2>
+          <div class="space-y-4">
+            {faq.map((item) => (
+              <div class="bg-white rounded-2xl p-6 shadow-sm border border-forest/10">
+                <h3 class="font-bold text-charcoal mb-2">{item.q}</h3>
+                <p class="text-charcoal/60 text-sm leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-forest/10 text-center">
+          <h2 class="font-display text-3xl text-forest mb-3">Still Have Questions?</h2>
+          <p class="text-charcoal/60 mb-6">Our team is happy to help — give us a call or find us on social media.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:9703895611"
+              class="bg-forest hover:bg-forest-dark text-white font-bold py-3 px-8 rounded-full transition-colors"
+            >
+              970-389-5611
+            </a>
+            <a
+              href="https://instagram.com/wildchildcolorado"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border border-forest text-forest hover:bg-forest/5 font-semibold py-3 px-8 rounded-full transition-colors"
+            >
+              @wildchildcolorado
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

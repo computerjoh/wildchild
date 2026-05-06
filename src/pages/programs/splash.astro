@@ -1,0 +1,110 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import Hero from '../../components/Hero.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="SPLASH Summer Camps | Wild Child Colorado"
+  description="SPLASH Summer Camps by Wild Child — marine science with real biologists, award-winning swim instruction, and waterfront adventures in Colorado."
+>
+  <CTABanner />
+  <Navbar />
+
+  <main>
+    <Hero
+      headline="SPLASH Summer Camps"
+      subheadline="Marine Science · Swim Instruction · Big Adventures"
+      compact={true}
+      imageSrc="https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1600&q=80"
+      imageAlt="Kids swimming and learning about marine science"
+      showCTA={false}
+    />
+
+    <section class="py-20 px-6 bg-cream">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-2">Making Waves</p>
+          <h2 class="font-display text-3xl sm:text-5xl text-sky mb-4">Two Unforgettable Programs</h2>
+          <p class="text-charcoal/60 max-w-xl mx-auto">
+            In partnership with Ocean First — Colorado's swim, SCUBA, and travel center — SPLASH combines
+            marine science, swimming, and summer camp magic.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Splash Camp -->
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+            <div class="bg-sky h-2" />
+            <div class="p-8">
+              <div class="text-4xl mb-4">🏊</div>
+              <h3 class="font-display text-3xl text-sky mb-2">Splash Camp</h3>
+              <span class="inline-block bg-sky/10 text-sky text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                Half-Day Program
+              </span>
+              <p class="text-charcoal/70 leading-relaxed mb-6">
+                Combines award-winning swim instruction with hands-on marine science taught by real marine
+                biologists — plus creative games, crafts, and summer camp play.
+              </p>
+              <a
+                href="https://wildchildcamp.funjoin.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-sky hover:bg-sky/80 text-white font-bold py-3 px-8 rounded-full transition-colors"
+              >
+                Register Now
+              </a>
+            </div>
+          </div>
+
+          <!-- Wet & Wild Child -->
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+            <div class="bg-forest h-2" />
+            <div class="p-8">
+              <div class="text-4xl mb-4">🤿</div>
+              <h3 class="font-display text-3xl text-forest mb-2">Wet & Wild Child</h3>
+              <span class="inline-block bg-sunset/10 text-sunset text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                Full-Day · Coming Soon
+              </span>
+              <p class="text-charcoal/70 leading-relaxed mb-6">
+                An expanded full-day program featuring offsite field trips, deeper marine science
+                curriculum, themed activities, and confidence-building skill development through
+                Ocean First's expert instructors.
+              </p>
+              <span class="inline-block bg-charcoal/10 text-charcoal/50 font-bold py-3 px-8 rounded-full text-sm">
+                Launching Soon
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Partner callout -->
+        <div class="mt-12 bg-sky/5 border border-sky/20 rounded-2xl p-8 text-center">
+          <p class="text-sky font-semibold uppercase tracking-widest text-xs mb-3">In Partnership With</p>
+          <h3 class="font-display text-3xl text-charcoal mb-3">Ocean First</h3>
+          <p class="text-charcoal/60 max-w-lg mx-auto">
+            Colorado's premier swim, SCUBA, and travel center — bringing real marine biologists
+            and world-class aquatic instruction to your kids' summer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-sky py-16 px-6 text-center text-white">
+      <h2 class="font-display text-5xl mb-4">Dive Into Summer 2026</h2>
+      <p class="text-white/80 mb-8 text-lg">Spots are limited — reserve yours today.</p>
+      <a
+        href="https://wildchildcamp.funjoin.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-white text-sky font-bold py-4 px-10 rounded-full text-lg hover:bg-cream transition-all"
+      >
+        Register for SPLASH
+      </a>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

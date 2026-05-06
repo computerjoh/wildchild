@@ -1,0 +1,77 @@
+---
+interface Props {
+  headline?: string;
+  subheadline?: string;
+  showCTA?: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
+  compact?: boolean;
+  divider?: 'none' | 'flatirons';
+}
+
+const {
+  headline = 'The Best Adventure Day Camp in Colorado',
+  subheadline = 'Dream BIG · Be BRAVE · GO WILD',
+  showCTA = true,
+  imageSrc = 'https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?w=1600&q=80',
+  imageAlt = 'Kids on a mountain summit in Colorado',
+  compact = false,
+  divider = 'none',
+} = Astro.props;
+---
+
+<section
+  class={`relative flex items-center justify-center text-white text-center overflow-hidden ${compact ? 'min-h-[40vh]' : 'min-h-[90vh]'}`}
+>
+  <img
+    src={imageSrc}
+    alt={imageAlt}
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+  />
+  <div class="absolute inset-0 bg-gradient-to-b from-forest-dark/70 via-charcoal/50 to-charcoal/80" />
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 py-16">
+    <p class="text-gold font-display text-xl tracking-[0.3em] uppercase mb-4">
+      Westminster, Colorado · Ages 6–15
+    </p>
+    <h1 class={`font-display text-white leading-none mb-6 ${compact ? 'text-3xl sm:text-5xl md:text-7xl' : 'text-4xl sm:text-6xl md:text-8xl lg:text-9xl'}`}>
+      {headline}
+    </h1>
+    <p class="text-base sm:text-xl md:text-2xl font-semibold text-forest-light mb-10 tracking-wide">
+      {subheadline}
+    </p>
+    {showCTA && (
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://wildchildcamp.funjoin.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-sunset hover:bg-sunset-dark text-white font-bold py-4 px-10 rounded-full text-lg transition-all shadow-xl hover:shadow-sunset/40 hover:scale-105"
+        >
+          Register Now — 2026
+        </a>
+        <a
+          href="#programs"
+          class="bg-white/10 hover:bg-white/20 border border-white/40 text-white font-semibold py-4 px-10 rounded-full text-lg transition-all backdrop-blur-sm"
+        >
+          Explore Programs
+        </a>
+      </div>
+    )}
+  </div>
+
+  {divider === 'flatirons' && (
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg
+        viewBox="0 0 1440 80"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-full block"
+        preserveAspectRatio="none"
+        style="height:80px"
+      >
+        <path d="M0,80 L0,60 L480,0 L720,40 L1440,0 L1440,80 Z" fill="#FAFAF5" />
+      </svg>
+    </div>
+  )}
+</section>

@@ -1,11 +1,202 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CTABanner from '../components/CTABanner.astro';
+import Hero from '../components/Hero.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import WeeklyFormula from '../components/WeeklyFormula.astro';
+import StaffCard from '../components/StaffCard.astro';
+import Footer from '../components/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const programs = [
+  {
+    title: 'Summer Day Camps',
+    description: 'Themed weekly adventures on the Colorado Front Range. Hiking, field trips, team games, arts & crafts — a new experience every week.',
+    href: '/programs/summer-day-camps',
+    ages: '6–16',
+    color: 'forest' as const,
+  },
+  {
+    title: 'SPLASH Camps',
+    description: 'Marine science with real biologists, award-winning swim instruction, and waterfront adventures through Ocean First.',
+    href: '/programs/splash',
+    ages: '6–15',
+    color: 'sky' as const,
+  },
+  {
+    title: 'Enrichment Programs',
+    description: 'HOWL (wilderness learning) and FAME (art, music & experiments) — hands-on programs that spark curiosity all year long.',
+    href: '/programs/enrichment',
+    ages: '6–15',
+    color: 'forest' as const,
+  },
+  {
+    title: 'REACH Climbing Club',
+    description: 'Set goals and reach higher through bouldering and top-rope climbing at Gl Climbing + Fitness. Every Friday after school.',
+    href: '/programs/reach',
+    ages: '7–15',
+    color: 'sunset' as const,
+    badge: '$37/session · $222/season',
+  },
+  {
+    title: 'SPARK Creative Writing',
+    description: 'Build confidence on the page with storytelling, poetry, journaling, and collaborative projects led by Aria (CU Boulder MA).',
+    href: '/programs/spark',
+    ages: '2nd grade+',
+    color: 'gold' as const,
+    badge: '$150/season',
+  },
+];
+
+const stats = [
+  { value: '26', label: 'Years of experience' },
+  { value: '1:6', label: 'Counselor-to-camper ratio' },
+  { value: '6–15', label: 'Ages served' },
+  { value: 'Award-winning', label: 'Camp Director & Educator' },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <CTABanner />
+  <Navbar />
+
+  <main>
+    <Hero />
+
+    <!-- Stats strip -->
+    <section class="bg-forest py-10 px-6">
+      <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+        {stats.map((s) => (
+          <div class="text-center text-white">
+            <div class="font-display text-3xl text-gold">{s.value}</div>
+            <div class="text-white/70 text-xs mt-1 font-medium uppercase tracking-wide">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs" class="py-20 px-6 bg-cream">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-2">What We Offer</p>
+          <h2 class="font-display text-3xl sm:text-5xl md:text-6xl text-forest mb-4">Choose Your Adventure</h2>
+          <p class="text-charcoal/60 max-w-xl mx-auto">
+            From summer day camps to year-round enrichment, every Wild Child program is built around wonder,
+            adventure, and letting kids be exactly who they want to be.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {programs.map((p) => (
+            <ProgramCard {...p} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <WeeklyFormula />
+
+    <!-- About section -->
+    <section class="py-20 px-6 bg-forest-dark text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <img
+          src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=1600&q=60"
+          alt=""
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <p class="text-gold font-display text-lg tracking-widest uppercase mb-4">Our Philosophy</p>
+        <h2 class="font-display text-5xl md:text-7xl mb-6 leading-tight">
+          A Very Special Place to<br />Learn & Grow
+        </h2>
+        <p class="text-white/70 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+          Wild Child is an award-winning youth development organization where kids ages 6–15 can dream big,
+          be brave, and go wild through intentional, hands-on learning. Our campers don't just attend camp —
+          they become explorers, scientists, artists, and adventurers.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/staff" class="bg-white text-forest font-bold py-3 px-8 rounded-full hover:bg-cream transition-colors">
+            Meet Our Team
+          </a>
+          <a href="/parents" class="border border-white/40 text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition-colors">
+            Parent Information
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Staff preview -->
+    <section class="py-20 px-6 bg-cream">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-sunset font-semibold uppercase tracking-widest text-sm mb-2">The Team</p>
+          <h2 class="font-display text-3xl sm:text-5xl text-forest mb-4">People Who Love This Work</h2>
+          <p class="text-charcoal/60 max-w-lg mx-auto">
+            Led by award-winning director Joel Van Egbert — 26 years of turning outdoor adventures into
+            life-changing moments.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaffCard
+            name="Joel Van Egbert"
+            nickname="Super Shark"
+            role="Founder & Executive Program Director"
+            bio="26 years in youth development. Named Early Childhood Educator of the Year and Camp Director of the Year. His vision: 'kids deserve to be treated like the people they hope to become.'"
+            highlights={['26 years experience', 'Award-winning director', 'SCUBA diver & mountain climber']}
+          />
+          <StaffCard
+            name="Danielle Mariner"
+            nickname="Styx"
+            role="Operations & Enterprise"
+            bio="A decade as camp counselor, four seasons under Joel, and now the organizational force behind the Wild Child experience. Builder and artist at heart."
+            highlights={['10+ years camp experience', 'Operations lead', 'Leadership & management']}
+          />
+          <StaffCard
+            name="Aria"
+            nickname="Bonfire"
+            role="Program Director & Media"
+            bio="CU Boulder Master's student in Education with a focus on childhood development and outdoor education. Creative writing degree, dancer, and lifelong camper."
+            highlights={['CU Boulder MA student', 'Creative writing specialist', 'Outdoor education focus']}
+          />
+          <StaffCard
+            name="Andrew"
+            nickname="Thunder Puppy"
+            role="Educator & Science Lead"
+            bio="10+ years as an educator from Boulder, CO. Turns learning into adventure through science, music, and backpacking trips across Colorado."
+            highlights={['10+ years education', 'Science enthusiast', 'Backpacker & musician']}
+          />
+        </div>
+        <div class="text-center mt-8">
+          <a href="/staff" class="inline-block text-forest font-semibold hover:text-forest-dark transition-colors underline underline-offset-4">
+            Read full bios
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="bg-gradient-sunset py-20 px-6 text-white text-center">
+      <div class="max-w-2xl mx-auto">
+        <p class="font-display text-lg tracking-widest uppercase text-white/80 mb-4">Summer 2026</p>
+        <h2 class="font-display text-4xl sm:text-6xl md:text-7xl mb-6">Don't Miss Out</h2>
+        <p class="text-white/80 text-lg mb-8">
+          Registration is open and spots are filling fast. Reserve your child's place in Colorado's
+          best adventure day camp today.
+        </p>
+        <a
+          href="https://wildchildcamp.funjoin.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-white text-sunset font-bold py-4 px-8 sm:px-12 rounded-full text-lg sm:text-xl hover:bg-cream transition-all shadow-xl hover:scale-105"
+        >
+          Register Now
+        </a>
+        <p class="mt-4 text-white/60 text-sm">Questions? Call us at 970-389-5611</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
 </Layout>
