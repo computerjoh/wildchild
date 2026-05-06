@@ -24,7 +24,8 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/png" sizes="256x256" href="/favicon_256x256.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap" /></noscript>
     <script defer src="https://cloud.umami.is/script.js" data-domains="go.wildchild.camp" data-website-id="3cedd56f-5d62-4530-ac73-2a3611130b83"></script>
   </head>
   <body class="font-sans text-carbon bg-white antialiased">
