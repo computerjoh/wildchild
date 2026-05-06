@@ -17,7 +17,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
 >
 
     <!-- ── 1. HEADER ── -->
-    <header class="bg-espresso px-6 py-3 sticky top-0 z-50 shadow-lg border-b border-white/5">
+    <header class="bg-boulder px-6 py-3 sticky top-0 z-50 shadow-lg border-b border-white/5">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href={MAIN_SITE_URL} rel="noopener noreferrer">
           <Image src={logo} alt="Wild Child Day Camps" class="h-16 w-auto object-contain" />
@@ -39,7 +39,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
           <!-- Divider -->
           <span class="w-px h-5 bg-white/15"></span>
           <!-- Phone -->
-          <a href="tel:9703895611" class="hidden sm:flex items-center gap-1.5 text-white/80 hover:text-white text-sm transition-colors">
+          <a href="tel:9703895611" class="hidden sm:flex items-center gap-1.5 text-white/80 hover:text-tangerine text-sm transition-colors">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
@@ -51,7 +51,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
             target="_blank"
             rel="noopener noreferrer"
             data-umami-event="Register Now - Header"
-            class="bg-ember hover:bg-ember-dark text-white font-bold text-sm px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-100 shadow-md"
+            class="bg-ember hover:bg-ember/90 text-white font-bold text-sm px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-100 shadow-md"
           >
             Register Now
           </a>
@@ -60,7 +60,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
     </header>
 
     <!-- ── 2. HERO: headline + form above the fold ── -->
-    <section class="relative bg-espresso text-white overflow-hidden min-h-[85vh] flex items-center">
+    <section class="relative bg-boulder text-white overflow-hidden min-h-screen flex items-center">
       <img
         src="https://img1.wsimg.com/isteam/ip/45bd3bbc-8957-4e8e-b462-e3f7bad11893/IMG_6350-e023c33.jpeg/:/rs=w:1200,m"
         alt="Kids on a mountain summit in Colorado"
@@ -72,7 +72,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
 
           <!-- Left: value proposition -->
           <div>
-            <span class="inline-block bg-amber text-carbon text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
+            <span class="inline-block bg-tangerine text-boulder text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
               Westminster, CO · Ages 6–15
             </span>
             <h1 class="font-display text-5xl sm:text-6xl md:text-7xl leading-none mb-6">
@@ -99,15 +99,15 @@ const MAIN_SITE_URL = "https://wildchild.camp";
               href="#form"
               class="inline-flex items-center gap-2 text-tangerine hover:text-white text-sm font-semibold transition-colors underline underline-offset-4 md:hidden"
             >
-              Reserve your spot below ↓
+              Reserve your spot below
             </a>
           </div>
 
           <!-- Right: CTA card -->
-          <div class="bg-white rounded-2xl shadow-2xl p-8 text-carbon flex flex-col justify-between gap-8">
+          <div id="form" class="bg-white rounded-2xl shadow-2xl p-8 text-carbon flex flex-col justify-between gap-8">
             <div>
               <p class="text-ember font-bold uppercase tracking-widest text-xs mb-3">Summer 2026 · Limited Spots</p>
-              <h2 class="font-display text-4xl sm:text-5xl text-espresso leading-none mb-6">Ready to Register?</h2>
+              <h2 class="font-display text-4xl sm:text-5xl text-boulder leading-none mb-6">Ready to Register?</h2>
               <ul class="space-y-3 mb-8">
                 {[
                   'Browse all programs: day camps, marine science, climbing & more',
@@ -129,7 +129,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
                 target="_blank"
                 rel="noopener noreferrer"
                 data-umami-event="Register Now - Hero"
-                class="block w-full text-center bg-ember hover:bg-ember-dark text-white font-bold py-4 px-6 rounded-full text-lg transition-all shadow-lg hover:scale-[1.02] active:scale-100 mb-4"
+                class="block w-full text-center bg-ember hover:bg-ember/90 text-white font-bold py-4 px-6 rounded-full text-lg transition-all shadow-lg hover:scale-[1.02] active:scale-100 mb-4"
               >
                 Browse &amp; Register Now
               </a>
@@ -150,7 +150,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
     </section>
 
     <!-- ── 3. BENEFITS STRIP: scannable key features ── -->
-    <section class="bg-aqua py-12 px-6">
+    <section class="bg-ember py-12 px-6">
       <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {benefits.map((b) => (
           <div class="text-white">
@@ -174,7 +174,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
           alt="Joel Van Egbert, Wild Child Founder"
           class="w-24 h-24 rounded-full object-cover mx-auto mb-6 border-4 border-tangerine shadow-lg"
         />
-        <blockquote class="font-display text-3xl sm:text-4xl md:text-5xl text-espresso leading-tight mb-6 max-w-3xl mx-auto">
+        <blockquote class="font-display text-3xl sm:text-4xl md:text-5xl text-boulder leading-tight mb-6 max-w-3xl mx-auto">
           "Kids deserve to be treated like the people they hope to become."
         </blockquote>
         <p class="text-carbon/60 text-sm font-medium">
@@ -187,11 +187,11 @@ const MAIN_SITE_URL = "https://wildchild.camp";
     </section>
 
     <!-- ── 5. PROGRAMS PREVIEW: what's included ── -->
-    <section class="py-16 px-6 bg-[#FFF8F0]">
+    <section class="py-16 px-6 bg-sandstone">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-10">
           <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">What We Offer</p>
-          <h2 class="font-display text-4xl sm:text-5xl text-espresso">Every Week Is an Adventure</h2>
+          <h2 class="font-display text-4xl sm:text-5xl text-boulder">Every Week Is an Adventure</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {programs.map((p) => (
@@ -200,7 +200,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
               target="_blank"
               rel="noopener noreferrer"
               data-umami-event={`Program - ${p.name}`}
-              class="block bg-white rounded-xl p-5 border border-espresso/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+              class="block bg-white rounded-xl p-5 border border-boulder/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
               <div class="flex items-start justify-between mb-2">
                 <h3 class="font-bold text-carbon text-sm leading-snug">{p.name}</h3>
@@ -216,7 +216,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
             target="_blank"
             rel="noopener noreferrer"
             data-umami-event="Browse All Programs"
-            class="inline-block text-espresso font-semibold text-sm hover:text-ember transition-colors underline underline-offset-4"
+            class="inline-block text-boulder font-semibold text-sm hover:text-ember transition-colors underline underline-offset-4"
           >
             Browse all programs &amp; register
           </a>
@@ -229,14 +229,14 @@ const MAIN_SITE_URL = "https://wildchild.camp";
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">What Parents Say</p>
-          <h2 class="font-display text-4xl sm:text-5xl text-espresso mb-4">Colorado Families Love Wild Child</h2>
+          <h2 class="font-display text-4xl sm:text-5xl text-boulder mb-4">Colorado Families Love Wild Child</h2>
           <p class="text-carbon/60 max-w-lg mx-auto text-sm">
             Don't take our word for it. Hear from the parents and kids who come back year after year.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
-            <div class="bg-[#FFF8F0] rounded-2xl p-7 border border-espresso/10 flex flex-col">
+            <div class="bg-sandstone rounded-2xl p-7 border border-boulder/10 flex flex-col">
               <div class="flex gap-0.5 mb-4">
                 {[...Array(5)].map(() => (
                   <svg class="w-4 h-4 text-tangerine" fill="currentColor" viewBox="0 0 20 20">
@@ -247,7 +247,6 @@ const MAIN_SITE_URL = "https://wildchild.camp";
               <p class="text-carbon/80 text-sm leading-relaxed flex-1 mb-5">"{t.quote}"</p>
               <div>
                 <p class="font-bold text-carbon text-sm">{t.name}</p>
-                <p class="text-carbon/50 text-xs mt-0.5">{t.detail}</p>
               </div>
             </div>
           ))}
@@ -256,7 +255,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
     </section>
 
     <!-- ── 7. TRUST / GUARANTEES: security & reassurances ── -->
-    <section class="bg-espresso py-16 px-6">
+    <section class="bg-boulder py-16 px-6">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-10">
           <h2 class="font-display text-3xl sm:text-4xl text-white">Why Parents Trust Wild Child</h2>
@@ -291,7 +290,7 @@ const MAIN_SITE_URL = "https://wildchild.camp";
             target="_blank"
             rel="noopener noreferrer"
             data-umami-event="Register Now - Bottom"
-            class="inline-block bg-white text-ember font-bold py-4 px-10 rounded-full text-lg hover:bg-[#FFF8F0] transition-all shadow-xl hover:scale-105"
+            class="inline-block bg-white text-ember font-bold py-4 px-10 rounded-full text-lg hover:bg-sandstone transition-all shadow-xl hover:scale-105"
           >
             Register Now
           </a>
