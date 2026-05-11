@@ -259,8 +259,8 @@ const carouselPhotos = Object.entries(photoModules)
     </section>
 
     <!-- ── 5. PROGRAMS PREVIEW: what's included ── -->
-    <section id="programs" class="py-16 px-6 bg-sandstone">
-      <div class="max-w-5xl mx-auto">
+    <section id="programs" class="pt-16 pb-0 bg-sandstone">
+      <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-10">
           <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">What We Offer</p>
           <h2 class="font-display text-4xl sm:text-5xl text-boulder">Every Week Is an Adventure</h2>
@@ -297,34 +297,34 @@ const carouselPhotos = Object.entries(photoModules)
           <p class="text-carbon/60 text-xs mt-3">Most popular weeks are already booked. Register now to secure your dates.</p>
         </div>
       </div>
-    </section>
 
-    <!-- ── 6. PHOTO CAROUSEL: infinite horizontal scroll ── -->
-    <section
-      class="bg-boulder py-10 overflow-hidden"
-      style="mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
-    >
+      <!-- ── PHOTO CAROUSEL ── -->
       <div
-        class="flex gap-3 w-max animate-[carousel-scroll_35s_linear_infinite]"
-        aria-hidden="true"
+        class="mt-10 overflow-hidden"
+        style="mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
       >
-        {[...carouselPhotos, ...carouselPhotos].map((photo, i) => (
-          <div class="w-52 h-52 flex-shrink-0 rounded-xl overflow-hidden">
-            <Image
-              src={photo}
-              alt=""
-              class="w-full h-full object-cover"
-              width={208}
-              height={208}
-              quality={70}
-              loading="lazy"
-            />
-          </div>
-        ))}
+        <div
+          class="flex gap-3 w-max animate-[carousel-scroll_35s_linear_infinite] pb-10"
+          aria-hidden="true"
+        >
+          {[...carouselPhotos, ...carouselPhotos].map((photo, i) => (
+            <div class="w-52 h-52 flex-shrink-0 rounded-xl overflow-hidden">
+              <Image
+                src={photo}
+                alt=""
+                class="w-full h-full object-cover"
+                width={208}
+                height={208}
+                quality={70}
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
-    <!-- ── 7. TRUST / GUARANTEES: security & reassurances ── -->
+    <!-- ── 6. TRUST / GUARANTEES: security & reassurances ── -->
     <section id="why-us" class="bg-boulder py-16 px-6">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-10">
