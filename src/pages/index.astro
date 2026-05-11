@@ -3,19 +3,6 @@ import { Image, getImage } from "astro:assets";
 import joel from "../assets/joel.webp";
 import kids from "../assets/kids.webp";
 import logo from "../assets/logo.webp";
-import photo1 from "../assets/1.webp";
-import photo2 from "../assets/2.webp";
-import photo3 from "../assets/3.webp";
-import photo4 from "../assets/4.webp";
-import photo5 from "../assets/5.webp";
-import photo6 from "../assets/6.webp";
-import photo7 from "../assets/7.webp";
-import photo8 from "../assets/8.webp";
-import photo9 from "../assets/9.webp";
-import photo10 from "../assets/10.webp";
-import photo11 from "../assets/11.webp";
-import photo12 from "../assets/12.webp";
-import photo13 from "../assets/13.webp";
 import { benefits } from "../data/benefits";
 import { programs } from "../data/programs";
 import { testimonials } from "../data/testimonials";
@@ -27,7 +14,17 @@ const MAIN_SITE_URL = "https://wildchild.camp";
 
 const kidsPreload = await getImage({ src: kids, format: "webp", quality: 60 });
 
-const carouselPhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13];
+const photoModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/slideshow/*.webp",
+  { eager: true }
+);
+const carouselPhotos = Object.entries(photoModules)
+  .sort(([a], [b]) => {
+    const numA = parseInt(a.match(/(\d+)\.webp$/)?.[1] ?? "0");
+    const numB = parseInt(b.match(/(\d+)\.webp$/)?.[1] ?? "0");
+    return numA - numB;
+  })
+  .map(([, mod]) => mod.default);
 ---
 
 <Layout
@@ -55,6 +52,7 @@ const carouselPhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, 
           <a href="#about" class="hover:text-tangerine transition-colors">About</a>
           <a href="#programs" class="hover:text-tangerine transition-colors">What We Offer</a>
           <a href="#why-us" class="hover:text-tangerine transition-colors">Why Choose Us</a>
+          <a href="#testimonials" class="hover:text-tangerine transition-colors">What Parents Say</a>
         </nav>
 
         <div class="flex items-center gap-4">
@@ -73,26 +71,47 @@ const carouselPhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, 
           </div>
           <!-- Divider -->
           <span class="w-px h-5 bg-white/15"></span>
-          <!-- Phone -->
+          <!-- Phone (sm+) -->
           <a href="tel:9703895611" class="hidden sm:flex items-center gap-1.5 text-white/80 hover:text-tangerine text-sm transition-colors">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             970-389-5611
           </a>
-          <!-- Register CTA -->
+          <!-- Register CTA (desktop only) -->
           <a
             href={FUNJOIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             data-umami-event="Register Now - Header"
             data-umami-event-url={FUNJOIN_URL}
-            class="bg-ember hover:bg-ember/90 text-white font-bold text-sm px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-100 shadow-md"
+            class="hidden md:inline-block bg-ember hover:bg-ember/90 text-white font-bold text-sm px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-100 shadow-md"
           >
             Register Now
           </a>
+          <!-- Hamburger (mobile only) -->
+          <button id="menu-toggle" class="md:hidden text-white/80 hover:text-tangerine transition-colors p-1" aria-label="Open menu" aria-expanded="false">
+            <svg id="icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
       </div>
+
+      <!-- Mobile nav panel (inside header so it stays sticky) -->
+      <nav id="mobile-menu" class="hidden md:hidden border-t border-white/10 px-6 py-4 flex flex-col gap-4">
+        <a href="#about" class="mobile-nav-link text-white/80 hover:text-tangerine text-sm font-medium transition-colors">About</a>
+        <a href="#programs" class="mobile-nav-link text-white/80 hover:text-tangerine text-sm font-medium transition-colors">What We Offer</a>
+        <a href="#why-us" class="mobile-nav-link text-white/80 hover:text-tangerine text-sm font-medium transition-colors">Why Choose Us</a>
+        <a href="#testimonials" class="mobile-nav-link text-white/80 hover:text-tangerine text-sm font-medium transition-colors">What Parents Say</a>
+        <div class="border-t border-white/10 pt-4 flex flex-col gap-3">
+          <a href="tel:9703895611" class="text-white/70 hover:text-tangerine text-sm transition-colors">970-389-5611</a>
+          <a href={FUNJOIN_URL} target="_blank" rel="noopener noreferrer" data-umami-event="Register Now - Mobile Menu" data-umami-event-url={FUNJOIN_URL} class="bg-ember hover:bg-ember/90 text-white font-bold text-sm px-4 py-2 rounded-full transition-all text-center">Register Now</a>
+        </div>
+      </nav>
     </header>
 
     <!-- ── 2. HERO: headline + form above the fold ── -->
@@ -208,23 +227,34 @@ const carouselPhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, 
       </div>
     </section>
 
-    <!-- ── 4. AUTHORITY QUOTE: social proof from an expert ── -->
+    <!-- ── 4. ABOUT: who we are + founder credibility ── -->
     <section id="about" class="py-20 px-6 bg-white">
       <div class="max-w-4xl mx-auto text-center">
-        <Image
-          src={joel}
-          alt="Joel Van Egbert, Wild Child Founder"
-          class="w-24 h-24 rounded-full object-cover mx-auto mb-6 border-4 border-tangerine shadow-lg"
-        />
-        <blockquote class="font-display text-3xl sm:text-4xl md:text-5xl text-boulder leading-tight mb-6 max-w-3xl mx-auto">
-          "Kids deserve to be treated like the people they hope to become."
-        </blockquote>
-        <p class="text-carbon/80 text-sm font-medium">
-          Joel Van Egbert, Founder & Executive Director
+        <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">About Wild Child</p>
+        <h2 class="font-display text-4xl sm:text-5xl text-boulder mb-4">A Very Special Place</h2>
+        <p class="text-carbon/60 text-sm font-medium uppercase tracking-widest mb-6">
+          Colorado Adventure Day Camp · Ages 6–15 · Westminster, CO
         </p>
-        <p class="text-ember font-bold text-sm mt-1">
-          Early Childhood Educator of the Year · Camp Director of the Year
+        <p class="text-carbon/70 text-base leading-relaxed max-w-2xl mx-auto">
+          Wild Child is a place where children can learn and grow into the person they hope to become. Every summer, campers get to be superheroes, scientists, adventurers — exactly who they want to be. We're honored to be a part of that journey.
         </p>
+
+        <div class="mt-12 pt-10 border-t border-boulder/10">
+          <Image
+            src={joel}
+            alt="Joel Van Egbert, Wild Child Founder"
+            class="w-20 h-20 rounded-full object-cover mx-auto mb-5 border-4 border-tangerine shadow-lg"
+          />
+          <blockquote class="font-display text-2xl sm:text-3xl md:text-4xl text-boulder leading-tight mb-5 max-w-2xl mx-auto">
+            "Kids deserve to be treated like the people they hope to become."
+          </blockquote>
+          <p class="text-carbon/80 text-sm font-medium">
+            Joel Van Egbert, Founder & Executive Director
+          </p>
+          <p class="text-ember font-bold text-sm mt-1">
+            Early Childhood Educator of the Year · Camp Director of the Year
+          </p>
+        </div>
       </div>
     </section>
 
@@ -294,8 +324,31 @@ const carouselPhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, 
       </div>
     </section>
 
-    <!-- ── 7. TESTIMONIALS: reviews & ratings from users ── -->
-    <section class="py-20 px-6 bg-white">
+    <!-- ── 7. TRUST / GUARANTEES: security & reassurances ── -->
+    <section id="why-us" class="bg-boulder py-16 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="text-tangerine font-semibold uppercase tracking-widest text-sm mb-2">Why Choose Us</p>
+          <h2 class="font-display text-4xl sm:text-5xl text-white">Why Parents Trust Wild Child</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {trustItems.map((item) => (
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-tangerine" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+                </svg>
+              </div>
+              <h3 class="font-bold text-white text-sm mb-1">{item.title}</h3>
+              <p class="text-white/60 text-xs leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 8. TESTIMONIALS: reviews & ratings from users ── -->
+    <section id="testimonials" class="py-20 px-6 bg-white">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">What Parents Say</p>
@@ -318,28 +371,6 @@ const carouselPhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, 
               <div>
                 <p class="font-bold text-carbon text-sm">{t.name}</p>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 8. TRUST / GUARANTEES: security & reassurances ── -->
-    <section id="why-us" class="bg-boulder py-16 px-6">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-10">
-          <h2 class="font-display text-3xl sm:text-4xl text-white">Why Parents Trust Wild Child</h2>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {trustItems.map((item) => (
-            <div class="text-center">
-              <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-tangerine" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
-                </svg>
-              </div>
-              <h3 class="font-bold text-white text-sm mb-1">{item.title}</h3>
-              <p class="text-white/60 text-xs leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -417,5 +448,29 @@ const carouselPhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, 
         </div>
       </div>
     </footer>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 </Layout>
