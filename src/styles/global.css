@@ -11,4 +11,15 @@
   --color-sandstone: #FDF5EE;
 
   --background-image-gradient-ember: linear-gradient(135deg, #A02208 0%, #C02A0E 100%);
+
+  --animate-carousel-scroll: carousel-scroll 30s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes carousel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
