@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { FUNJOIN_URL } from '../constants';
+
+const programs = await getCollection('programs');
+
+const photoModules = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/slideshow/*.webp',
+  { eager: true }
+);
+const carouselPhotos = Object.entries(photoModules)
+  .sort(([a], [b]) => {
+    const numA = parseInt(a.match(/(\d+)\.webp$/)?.[1] ?? '0');
+    const numB = parseInt(b.match(/(\d+)\.webp$/)?.[1] ?? '0');
+    return numA - numB;
+  })
+  .map(([, mod]) => mod.default);
+---
+
+<section id="programs" class="pt-16 pb-0 bg-sandstone">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">What We Offer</p>
+      <h2 class="font-display text-4xl sm:text-5xl text-boulder">Every Week Is an Adventure</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {programs.map((p) => (
+        <a
+          href={FUNJOIN_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-umami-event={`Program - ${p.data.name}`}
+          data-umami-event-url={FUNJOIN_URL}
+          class="block bg-white rounded-xl p-5 border border-boulder/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+        >
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-bold text-carbon text-sm leading-snug">{p.data.name}</h3>
+            <span class="text-xs text-ember font-semibold bg-ember/10 px-2 py-0.5 rounded-full ml-2 flex-shrink-0">Ages {p.data.ages}</span>
+          </div>
+          <p class="text-carbon/80 text-xs leading-relaxed">{p.data.desc}</p>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a
+        href={FUNJOIN_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-umami-event="Browse All Programs"
+        data-umami-event-url={FUNJOIN_URL}
+        class="inline-block text-boulder font-semibold text-sm hover:text-ember transition-colors underline underline-offset-4"
+      >
+        Browse all programs &amp; register
+      </a>
+      <p class="text-carbon/60 text-xs mt-3">Most popular weeks are already booked. Register now to secure your dates.</p>
+    </div>
+  </div>
+
+  <div
+    class="mt-10 overflow-hidden"
+    style="mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
+  >
+    <div
+      class="flex gap-3 w-max animate-[carousel-scroll_35s_linear_infinite] pb-10"
+      aria-hidden="true"
+    >
+      {[...carouselPhotos, ...carouselPhotos].map((photo, i) => (
+        <div class="w-52 h-52 flex-shrink-0 rounded-xl overflow-hidden">
+          <Image
+            src={photo}
+            alt=""
+            class="w-full h-full object-cover"
+            width={208}
+            height={208}
+            quality={70}
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

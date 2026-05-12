@@ -1,0 +1,38 @@
+[
+  {
+    "id": "01",
+    "name": "Summer Day Camps",
+    "ages": "6–16",
+    "desc": "Hiking, rafting, climbing & more. New destination every week."
+  },
+  {
+    "id": "02",
+    "name": "SPLASH Marine Science",
+    "ages": "6–15",
+    "desc": "Underwater discovery with real biologists from Ocean First"
+  },
+  {
+    "id": "03",
+    "name": "Enrichment Programs",
+    "ages": "6–15",
+    "desc": "HOWL & FAME: hands-on wilderness skills, art, music, science"
+  },
+  {
+    "id": "04",
+    "name": "REACH Climbing Club",
+    "ages": "7–15",
+    "desc": "Weekly bouldering & top-rope sessions at GL Climbing"
+  },
+  {
+    "id": "05",
+    "name": "SPARK Creative Writing",
+    "ages": "2nd grade+",
+    "desc": "Storytelling and poetry led by a CU Boulder MA student"
+  },
+  {
+    "id": "06",
+    "name": "And More...",
+    "ages": "6–15",
+    "desc": "Browse all sessions and enroll directly"
+  }
+]

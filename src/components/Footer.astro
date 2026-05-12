@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.webp';
+---
+
+<footer class="bg-carbon text-white py-10 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-4">
+      <Image src={logo} alt="Wild Child Day Camps" class="h-10 w-auto object-contain" />
+      <address class="not-italic text-white/50 text-xs leading-relaxed">
+        Woodrow Wilson Academy<br />
+        8300 W 94th Ave · Westminster, CO 80021
+      </address>
+    </div>
+    <div class="text-center sm:text-right">
+      <a href="tel:9703895611" class="text-tangerine hover:text-white font-semibold text-sm transition-colors block mb-1">
+        970-389-5611
+      </a>
+      <p class="text-white/60 text-xs">
+        © {new Date().getFullYear()} Wild Child Day Camps. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

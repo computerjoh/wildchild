@@ -1,0 +1,52 @@
+---
+import { FUNJOIN_URL, MAIN_SITE_URL } from '../constants';
+---
+
+<section class="bg-gradient-ember py-20 px-6 text-white text-center">
+  <div class="max-w-2xl mx-auto">
+
+    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+      {[
+        { quote: 'Worth every penny.', name: 'Marcus T.' },
+        { quote: 'Nothing compares.', name: 'Jennifer K.' },
+        { quote: 'My daughters cannot wait to go back.', name: 'Jaclyn U.' },
+      ].map((t) => (
+        <div class="text-center">
+          <p class="text-tangerine font-display text-2xl leading-none mb-1">"</p>
+          <p class="text-white/90 text-sm italic">"{t.quote}"</p>
+          <p class="text-white/60 text-xs mt-1">— {t.name}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="font-display text-lg tracking-widest uppercase text-white/80 mb-4">Summer 2026</p>
+    <h2 class="font-display text-5xl sm:text-6xl md:text-7xl mb-6">Spots Are Going Fast</h2>
+    <p class="text-white/80 text-lg mb-8 leading-relaxed">
+      Only a limited number of spots remain for Summer 2026. Most popular weeks are already booked, don't wait until your child's session is gone.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={FUNJOIN_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-umami-event="Register Now - Bottom"
+        data-umami-event-url={FUNJOIN_URL}
+        class="inline-block bg-white text-ember font-bold py-4 px-10 rounded-full text-lg hover:bg-sandstone transition-all shadow-xl hover:scale-105"
+      >
+        Register Now
+      </a>
+      <a
+        href={MAIN_SITE_URL}
+        rel="noopener noreferrer"
+        data-umami-event="Learn More - Bottom"
+        class="inline-block bg-white/10 hover:bg-white/20 border border-white/40 text-white font-semibold py-4 px-10 rounded-full text-lg transition-all backdrop-blur-sm"
+      >
+        Learn More at wildchild.camp
+      </a>
+    </div>
+    <p class="mt-6 text-white/60 text-sm">
+      Questions? Call us at{' '}
+      <a href="tel:9703895611" class="underline hover:text-white transition-colors">970-389-5611</a>
+    </p>
+  </div>
+</section>

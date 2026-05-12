@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import kids from '../assets/kids.webp';
+import { FUNJOIN_URL, MAIN_SITE_URL } from '../constants';
+---
+
+<section class="relative bg-boulder text-white overflow-hidden min-h-screen flex items-center">
+  <Image
+    src={kids}
+    alt="Kids on a mountain summit in Colorado"
+    class="absolute inset-0 w-full h-full object-cover opacity-20"
+    loading="eager"
+    fetchpriority="high"
+    quality={60}
+  />
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 py-16 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <span class="inline-block bg-tangerine text-boulder text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
+          Westminster, CO · Ages 6–15
+        </span>
+        <h1 class="font-display text-5xl sm:text-6xl md:text-7xl leading-none mb-3">
+          Outdoor Summer Camp<br />for Kids Ages 6–15
+        </h1>
+        <p class="text-tangerine/90 text-sm font-semibold tracking-wide uppercase mb-6">
+          Westminster, Colorado · Nature-Based Learning · Summer 2026 Registration Open
+        </p>
+        <p class="text-white/80 text-lg mb-8 leading-relaxed max-w-md">
+          Colorado's #1 adventure day camp: hiking, rafting, rock climbing, marine science, and friendships that last all year. Most popular weeks already booked.
+        </p>
+        <ul class="space-y-3 mb-8">
+          {[
+            '1:6 counselor-to-camper ratio, with real attention every day',
+            'Award-winning director with 26 years in youth development',
+            'Licensed & insured, trusted by Front Range families since 1999',
+          ].map((item) => (
+            <li class="flex items-start gap-3 text-white/90 text-sm">
+              <svg class="w-5 h-5 text-tangerine mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a
+          href="#form"
+          class="inline-flex items-center gap-2 text-tangerine hover:text-white text-sm font-semibold transition-colors underline underline-offset-4 md:hidden"
+        >
+          Reserve your spot below
+        </a>
+      </div>
+
+      <div id="form" class="bg-white rounded-2xl shadow-2xl p-8 text-carbon flex flex-col justify-between gap-8">
+        <div>
+          <p class="text-ember font-bold uppercase tracking-widest text-xs mb-3">Summer 2026 · Limited Spots</p>
+          <h2 class="font-display text-4xl sm:text-5xl text-boulder leading-none mb-6">Ready to Register?</h2>
+          <ul class="space-y-3 mb-8">
+            {[
+              'Browse all programs: day camps, marine science, climbing & more',
+              'Pick your weeks and enroll directly in our registration system',
+              'Secure your child\'s spot before sessions sell out',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-carbon/80 text-sm">
+                <svg class="w-5 h-5 text-ember mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <a
+            href={FUNJOIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="Register Now - Hero"
+            data-umami-event-url={FUNJOIN_URL}
+            class="block w-full text-center bg-ember hover:bg-ember/90 text-white font-bold py-4 px-6 rounded-full text-lg transition-all shadow-lg hover:scale-[1.02] active:scale-100 mb-4"
+          >
+            Browse &amp; Register Now
+          </a>
+          <a
+            href={MAIN_SITE_URL}
+            rel="noopener noreferrer"
+            data-umami-event="Learn More - Hero"
+            class="block w-full text-center text-carbon/70 hover:text-carbon text-sm transition-colors underline underline-offset-2"
+          >
+            Learn more at wildchild.camp
+          </a>
+          <p class="text-center text-carbon/70 text-xs mt-4">Only a limited number of spots available, sessions filling quickly.</p>
+          <p class="text-center text-carbon/50 text-xs mt-1">Programs from $450 – $600/week.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
