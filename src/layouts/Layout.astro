@@ -4,9 +4,54 @@ import "../styles/global.css";
 interface Props {
 	title: string;
 	description: string;
+	ogImage?: string;
+	canonical?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage = "/og-default.webp", canonical } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://go.wildchild.camp");
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
+const logoUrl = new URL("/favicon_256x256.png", siteUrl).href;
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": ["LocalBusiness", "Camp"],
+			"@id": `${siteUrl.origin}/#camp`,
+			name: "Wild Child Day Camps",
+			url: siteUrl.origin + "/",
+			telephone: "+1-970-389-5611",
+			image: ogImageUrl,
+			priceRange: "$450-$600",
+			address: {
+				"@type": "PostalAddress",
+				streetAddress: "8300 W 94th Ave",
+				addressLocality: "Westminster",
+				addressRegion: "CO",
+				postalCode: "80021",
+				addressCountry: "US",
+			},
+			sameAs: [
+				"https://facebook.com/wildchildprograms",
+				"https://instagram.com/wildchildcolorado",
+			],
+		},
+		{
+			"@type": "Organization",
+			"@id": `${siteUrl.origin}/#organization`,
+			name: "Wild Child Day Camps",
+			url: siteUrl.origin + "/",
+			logo: logoUrl,
+			sameAs: [
+				"https://facebook.com/wildchildprograms",
+				"https://instagram.com/wildchildcolorado",
+			],
+		},
+	],
+};
 ---
 
 <!doctype html>
@@ -16,16 +61,31 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="theme-color" content="#231510" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon_48x48.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon_64x64.png" />
-    <link rel="apple-touch-icon" sizes="128x128" href="/favicon_128x128.png" />
     <link rel="icon" type="image/png" sizes="256x256" href="/favicon_256x256.png" />
+    <link rel="apple-touch-icon" sizes="256x256" href="/favicon_256x256.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Wild Child Day Camps" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap" /></noscript>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <script
       defer
       src="/umami.js"
