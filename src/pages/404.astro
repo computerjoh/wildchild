@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { FUNJOIN_URL } from '../constants';
+---
+
+<Layout
+  title="Page Not Found — Wild Child Day Camps"
+  description="The page you're looking for doesn't exist. Head back to Wild Child Day Camps to explore summer programs for kids ages 6–15 in Westminster, CO."
+>
+  <main class="min-h-screen bg-sandstone flex items-center justify-center px-6 py-24">
+    <div class="max-w-xl mx-auto text-center">
+      <p class="text-ember font-bold uppercase tracking-widest text-sm mb-4">404 · Page Not Found</p>
+      <h1 class="font-display text-6xl sm:text-7xl text-boulder leading-none mb-6">
+        Lost on the Trail?
+      </h1>
+      <p class="text-carbon/70 text-base leading-relaxed mb-10">
+        This page doesn't exist — but a great summer adventure does.
+        Head back to the homepage to explore our programs, check availability, and reserve your child's spot.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center bg-ember hover:bg-ember/90 text-white font-bold py-3 px-8 rounded-full text-base transition-all shadow-lg hover:scale-[1.02] active:scale-100"
+        >
+          Back to Homepage
+        </a>
+        <a
+          href={FUNJOIN_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center border-2 border-boulder text-boulder hover:bg-boulder hover:text-white font-bold py-3 px-8 rounded-full text-base transition-all"
+        >
+          Browse Programs
+        </a>
+      </div>
+      <p class="text-carbon/40 text-xs mt-10">Wild Child Day Camps · Westminster, CO · Ages 6–15</p>
+    </div>
+  </main>
+</Layout>
