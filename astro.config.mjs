@@ -1,23 +1,24 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-import vercel from '@astrojs/vercel';
-import sitemap from '@astrojs/sitemap';
+
+import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://go.wildchild.camp',
-  output: 'static',
+	site: "https://go.wildchild.camp",
+	output: "static",
 
-  build: {
-    inlineStylesheets: 'always',
-  },
+	build: {
+		inlineStylesheets: "always",
+	},
 
-  integrations: [sitemap()],
+	integrations: [sitemap()],
 
-  vite: {
-    plugins: [tailwindcss()],
-  },
+	vite: {
+		plugins: [tailwindcss()],
+	},
 
-  adapter: vercel(),
+	adapter: vercel(),
 });

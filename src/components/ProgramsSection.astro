@@ -1,21 +1,21 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import { FUNJOIN_URL } from '../constants';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { FUNJOIN_URL } from "../constants";
 
-const programs = await getCollection('programs');
+const programs = await getCollection("programs");
 
 const photoModules = import.meta.glob<{ default: ImageMetadata }>(
-  '../assets/slideshow/*.webp',
-  { eager: true }
+	"../assets/slideshow/*.webp",
+	{ eager: true },
 );
 const carouselPhotos = Object.entries(photoModules)
-  .sort(([a], [b]) => {
-    const numA = parseInt(a.match(/(\d+)\.webp$/)?.[1] ?? '0');
-    const numB = parseInt(b.match(/(\d+)\.webp$/)?.[1] ?? '0');
-    return numA - numB;
-  })
-  .map(([, mod]) => mod.default);
+	.sort(([a], [b]) => {
+		const numA = parseInt(a.match(/(\d+)\.webp$/)?.[1] ?? "0", 10);
+		const numB = parseInt(b.match(/(\d+)\.webp$/)?.[1] ?? "0", 10);
+		return numA - numB;
+	})
+	.map(([, mod]) => mod.default);
 ---
 
 <section id="programs" class="pt-16 pb-0 bg-sandstone">

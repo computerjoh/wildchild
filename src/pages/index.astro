@@ -1,24 +1,24 @@
 ---
-import { getImage } from 'astro:assets';
-import kids from '../assets/kids.webp';
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import HeroSection from '../components/HeroSection.astro';
-import BenefitsStrip from '../components/BenefitsStrip.astro';
-import AboutSection from '../components/AboutSection.astro';
-import ProgramsSection from '../components/ProgramsSection.astro';
-import TrustSection from '../components/TrustSection.astro';
-import TestimonialsSection from '../components/TestimonialsSection.astro';
-import PricingSection from '../components/PricingSection.astro';
-import CTASection from '../components/CTASection.astro';
-import Footer from '../components/Footer.astro';
+import { getImage } from "astro:assets";
+import kids from "../assets/kids.webp";
+import AboutSection from "../components/AboutSection.astro";
+import BenefitsStrip from "../components/BenefitsStrip.astro";
+import CTASection from "../components/CTASection.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import HeroSection from "../components/HeroSection.astro";
+import PricingSection from "../components/PricingSection.astro";
+import ProgramsSection from "../components/ProgramsSection.astro";
+import TestimonialsSection from "../components/TestimonialsSection.astro";
+import TrustSection from "../components/TrustSection.astro";
+import Layout from "../layouts/Layout.astro";
 
-const kidsPreload = await getImage({ src: kids, format: 'webp', quality: 60 });
+const kidsPreload = await getImage({ src: kids, format: "webp", quality: 60 });
 ---
 
 <Layout
   title="Wild Child Day Camps: Reserve Your Summer 2026 Spot"
-  description="Colorado's #1 adventure day camp for kids ages 6–15. Hiking, rafting, climbing & more. Reserve your Summer 2026 spot today. Spots fill fast."
+  description="Colorado's #1 adventure day camp for kids ages 6-15. Hiking, rafting, climbing & more. Reserve your Summer 2026 spot today. Spots fill fast."
 >
   <link
     slot="head"

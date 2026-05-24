@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "wildchild",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,11 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^10.0.6",
+    "@astrojs/vercel": "^10.0.7",
     "@fontsource/bebas-neue": "^5.2.7",
     "@fontsource/poppins": "^5.2.7",
     "@tailwindcss/vite": "^4.2.4",
-    "astro": "^6.1.9",
+    "astro": "^6.3.7",
     "tailwindcss": "^4.2.4"
   },
   "devDependencies": {

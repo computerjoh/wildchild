@@ -7,26 +7,34 @@
 @import "@fontsource/poppins/800.css";
 
 @theme {
-  --font-family-display: "Bebas Neue", sans-serif;
-  --font-family-sans: "Poppins", system-ui, sans-serif;
+	--font-family-display: "Bebas Neue", sans-serif;
+	--font-family-sans: "Poppins", system-ui, sans-serif;
 
-  --color-boulder: #231510;
-  --color-ember: #C02A0E;
-  --color-tangerine: #F9A571;
-  --color-carbon: #1E1E1E;
-  --color-sandstone: #FDF5EE;
+	--color-boulder: #231510;
+	--color-ember: #c02a0e;
+	--color-tangerine: #f9a571;
+	--color-carbon: #1e1e1e;
+	--color-sandstone: #fdf5ee;
 
-  --background-image-gradient-ember: linear-gradient(135deg, #A02208 0%, #C02A0E 100%);
+	--background-image-gradient-ember: linear-gradient(
+		135deg,
+		#a02208 0%,
+		#c02a0e 100%
+	);
 
-  --animate-carousel-scroll: carousel-scroll 30s linear infinite;
+	--animate-carousel-scroll: carousel-scroll 30s linear infinite;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+	scroll-behavior: smooth;
+	scroll-padding-top: 88px;
 }
 
 @keyframes carousel-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
 }
