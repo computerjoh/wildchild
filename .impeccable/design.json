@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-07T00:00:00Z",
+  "title": "Design System: Wild Child Day Camps",
+  "extensions": {
+    "colorMeta": {
+      "ember-core": {
+        "role": "primary",
+        "displayName": "Ember Core",
+        "canonical": "oklch(43% 0.200 35)",
+        "tonalRamp": [
+          "oklch(15% 0.100 35)",
+          "oklch(25% 0.145 35)",
+          "oklch(35% 0.180 35)",
+          "oklch(43% 0.200 35)",
+          "oklch(55% 0.185 35)",
+          "oklch(65% 0.155 35)",
+          "oklch(78% 0.110 35)",
+          "oklch(92% 0.040 35)"
+        ]
+      },
+      "sunrise-orange": {
+        "role": "secondary",
+        "displayName": "Sunrise Orange",
+        "canonical": "oklch(75% 0.135 55)",
+        "tonalRamp": [
+          "oklch(20% 0.080 55)",
+          "oklch(32% 0.105 55)",
+          "oklch(45% 0.120 55)",
+          "oklch(58% 0.130 55)",
+          "oklch(68% 0.135 55)",
+          "oklch(75% 0.135 55)",
+          "oklch(85% 0.100 55)",
+          "oklch(95% 0.045 55)"
+        ]
+      },
+      "base-layer": {
+        "role": "neutral",
+        "displayName": "Base Layer",
+        "canonical": "oklch(11% 0.047 40)",
+        "tonalRamp": [
+          "oklch(10% 0.047 40)",
+          "oklch(18% 0.047 40)",
+          "oklch(28% 0.047 40)",
+          "oklch(38% 0.040 40)",
+          "oklch(50% 0.030 40)",
+          "oklch(65% 0.020 40)",
+          "oklch(80% 0.012 40)",
+          "oklch(93% 0.006 40)"
+        ]
+      },
+      "basecamp-black": {
+        "role": "neutral",
+        "displayName": "Basecamp Black",
+        "canonical": "oklch(12% 0.000 0)",
+        "tonalRamp": [
+          "oklch(12% 0.000 0)",
+          "oklch(22% 0.000 0)",
+          "oklch(32% 0.000 0)",
+          "oklch(44% 0.000 0)",
+          "oklch(56% 0.000 0)",
+          "oklch(68% 0.000 0)",
+          "oklch(80% 0.000 0)",
+          "oklch(93% 0.000 0)"
+        ]
+      },
+      "chalk-dust": {
+        "role": "neutral",
+        "displayName": "Chalk Dust",
+        "canonical": "oklch(97% 0.016 75)",
+        "tonalRamp": [
+          "oklch(15% 0.016 75)",
+          "oklch(28% 0.016 75)",
+          "oklch(42% 0.016 75)",
+          "oklch(56% 0.016 75)",
+          "oklch(70% 0.016 75)",
+          "oklch(82% 0.015 75)",
+          "oklch(91% 0.014 75)",
+          "oklch(97% 0.016 75)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "h1-level page titles only: hero headline, CTA section headline. All-caps by nature of Bebas Neue."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2s and pull-quotes. Scaled-down Bebas Neue; same authority as Display, slightly less scale."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running prose. Max 65ch line length on large viewports."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Section kickers, badge text, nav links, caption metadata. Always uppercase with wide tracking."
+      }
+    },
+    "shadows": [
+      {
+        "name": "content-lift",
+        "value": "0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06)",
+        "purpose": "Program cards at rest. Minimal lift signaling interactivity."
+      },
+      {
+        "name": "hover-lift",
+        "value": "0 4px 6px -1px rgba(0,0,0,0.10), 0 2px 4px -2px rgba(0,0,0,0.10)",
+        "purpose": "Program cards on hover. State signal only, not a static style."
+      },
+      {
+        "name": "structural-lift",
+        "value": "0 10px 15px -3px rgba(0,0,0,0.10), 0 4px 6px -4px rgba(0,0,0,0.10)",
+        "purpose": "Sticky header and primary CTA button in hero. Separates chrome from content."
+      },
+      {
+        "name": "cta-lift",
+        "value": "0 20px 25px -5px rgba(0,0,0,0.10), 0 8px 10px -6px rgba(0,0,0,0.10)",
+        "purpose": "CTA buttons in the final Ember section. Maximum button emphasis."
+      },
+      {
+        "name": "panel-lift",
+        "value": "0 25px 50px -12px rgba(0,0,0,0.25)",
+        "purpose": "Hero registration panel. The deepest shadow on the page — reserved for the primary conversion surface."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for all state transitions (color, shadow, transform). Tailwind's transition-all default."
+      },
+      {
+        "name": "carousel-scroll",
+        "value": "carousel-scroll 35s linear infinite",
+        "purpose": "Infinite horizontal scroll for the photo carousel in the Programs section. Linear, no easing."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main conversion CTA on light (White, Chalk Dust) surfaces. Full-width in the hero panel; inline elsewhere.",
+      "html": "<a class=\"ds-btn-primary\">Browse &amp; Register Now</a>",
+      "css": ".ds-btn-primary { display: inline-block; background-color: #c02a0e; color: #ffffff; font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; font-size: 1.125rem; padding: 16px 24px; border-radius: 9999px; text-decoration: none; text-align: center; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.10), 0 4px 6px -4px rgba(0,0,0,0.10); transition: background-color 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1); border: none; cursor: pointer; } .ds-btn-primary:hover { background-color: #ad2508; transform: scale(1.02); } .ds-btn-primary:active { transform: scale(1.00); } .ds-btn-primary:focus-visible { outline: 2px solid #c02a0e; outline-offset: 3px; }"
+    },
+    {
+      "name": "Inverted Button",
+      "kind": "button",
+      "refersTo": "button-inverted",
+      "description": "Equal-priority CTA on Ember Core surfaces. White fills for contrast; Ember Core text preserves brand continuity.",
+      "html": "<a class=\"ds-btn-inverted\">Register Now</a>",
+      "css": ".ds-btn-inverted { display: inline-block; background-color: #ffffff; color: #c02a0e; font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; font-size: 1.125rem; padding: 16px 40px; border-radius: 9999px; text-decoration: none; text-align: center; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.10), 0 8px 10px -6px rgba(0,0,0,0.10); transition: background-color 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1); border: none; cursor: pointer; } .ds-btn-inverted:hover { background-color: #fdf5ee; transform: scale(1.05); } .ds-btn-inverted:active { transform: scale(1.00); } .ds-btn-inverted:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Lower-priority secondary action on Ember Core surfaces only. Never use on White or Chalk Dust backgrounds.",
+      "html": "<a class=\"ds-btn-ghost\">Learn More at wildchild.camp</a>",
+      "css": ".ds-btn-ghost { display: inline-block; background-color: rgba(255,255,255,0.10); color: #ffffff; font-family: 'Poppins', system-ui, sans-serif; font-weight: 600; font-size: 1.125rem; padding: 16px 40px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.40); text-decoration: none; text-align: center; backdrop-filter: blur(4px); transition: background-color 200ms cubic-bezier(0.4,0,0.2,1); cursor: pointer; } .ds-btn-ghost:hover { background-color: rgba(255,255,255,0.20); } .ds-btn-ghost:focus-visible { outline: 2px solid rgba(255,255,255,0.80); outline-offset: 3px; }"
+    },
+    {
+      "name": "Small Button (Nav)",
+      "kind": "button",
+      "refersTo": "button-sm",
+      "description": "Compact Ember Core CTA for the sticky header. Desktop only; hidden on mobile in favor of the mobile menu CTA.",
+      "html": "<a class=\"ds-btn-sm\">Register Now</a>",
+      "css": ".ds-btn-sm { display: inline-block; background-color: #c02a0e; color: #ffffff; font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; font-size: 0.875rem; padding: 8px 16px; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.10), 0 2px 4px -2px rgba(0,0,0,0.10); transition: transform 200ms cubic-bezier(0.4,0,0.2,1); border: none; cursor: pointer; } .ds-btn-sm:hover { transform: scale(1.05); } .ds-btn-sm:active { transform: scale(1.00); } .ds-btn-sm:focus-visible { outline: 2px solid #c02a0e; outline-offset: 3px; }"
+    },
+    {
+      "name": "Program Card",
+      "kind": "card",
+      "refersTo": "program-card",
+      "description": "Linked card for each camp program. Sits on Chalk Dust background; white fill provides one-step lift without a shadow override.",
+      "html": "<a class=\"ds-program-card\"><div class=\"ds-program-card-header\"><h3 class=\"ds-program-card-title\">Mountain Hiking</h3><span class=\"ds-age-badge\">Ages 8-15</span></div><p class=\"ds-program-card-desc\">Trek real Colorado trails with experienced guides. Learn navigation, Leave No Trace, and summit a 14er.</p></a>",
+      "css": ".ds-program-card { display: block; background-color: #ffffff; border-radius: 0.75rem; padding: 20px; border: 1px solid rgba(35,21,16,0.10); box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06); transition: box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1); text-decoration: none; color: inherit; } .ds-program-card:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.10), 0 2px 4px -2px rgba(0,0,0,0.10); transform: translateY(-2px); } .ds-program-card:focus-visible { outline: 2px solid #c02a0e; outline-offset: 2px; } .ds-program-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; } .ds-program-card-title { font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; font-size: 0.875rem; line-height: 1.4; color: #1e1e1e; margin: 0; } .ds-program-card-desc { font-family: 'Poppins', system-ui, sans-serif; font-weight: 400; font-size: 0.75rem; line-height: 1.6; color: rgba(30,30,30,0.80); margin: 0; } .ds-age-badge { display: inline-block; background-color: rgba(192,42,14,0.10); color: #c02a0e; font-family: 'Poppins', system-ui, sans-serif; font-weight: 600; font-size: 0.75rem; padding: 2px 8px; border-radius: 9999px; flex-shrink: 0; white-space: nowrap; }"
+    },
+    {
+      "name": "Testimonial Card",
+      "kind": "card",
+      "refersTo": "testimonial-card",
+      "description": "Parent review card on White section background. Chalk Dust fill provides the card boundary without a shadow.",
+      "html": "<div class=\"ds-testimonial-card\"><div class=\"ds-stars\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 20 20\" fill=\"#f9a571\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 20 20\" fill=\"#f9a571\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 20 20\" fill=\"#f9a571\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 20 20\" fill=\"#f9a571\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 20 20\" fill=\"#f9a571\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z\"/></svg></div><p class=\"ds-testimonial-quote\">\"My daughter asks every year if she can go back. The counselors actually remembered her name.\"</p><p class=\"ds-testimonial-author\">Sarah M.</p></div>",
+      "css": ".ds-testimonial-card { background-color: #fdf5ee; border-radius: 1rem; padding: 28px; border: 1px solid rgba(35,21,16,0.10); display: flex; flex-direction: column; } .ds-stars { display: flex; gap: 2px; margin-bottom: 16px; } .ds-testimonial-quote { font-family: 'Poppins', system-ui, sans-serif; font-size: 0.875rem; font-weight: 400; line-height: 1.625; color: rgba(30,30,30,0.80); font-style: italic; flex: 1; margin: 0 0 20px 0; } .ds-testimonial-author { font-family: 'Poppins', system-ui, sans-serif; font-size: 0.875rem; font-weight: 700; color: #1e1e1e; margin: 0; }"
+    },
+    {
+      "name": "Section Kicker",
+      "kind": "custom",
+      "description": "Uppercase label that opens every section, above the h2. Ember Core on light surfaces; Sunrise Orange on dark. Never repeated inside section content.",
+      "html": "<p class=\"ds-kicker-light\">What We Offer</p><p class=\"ds-kicker-dark\" style=\"background:#231510;padding:8px;\">Why Choose Us</p>",
+      "css": ".ds-kicker-light { font-family: 'Poppins', system-ui, sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #c02a0e; margin: 0 0 8px 0; } .ds-kicker-dark { font-family: 'Poppins', system-ui, sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #f9a571; margin: 0 0 8px 0; }"
+    },
+    {
+      "name": "Navigation (Desktop)",
+      "kind": "nav",
+      "description": "Sticky header navigation on Base Layer background. Logo left, links center, social + phone + CTA right.",
+      "html": "<header class=\"ds-header\"><nav class=\"ds-nav\"><a href=\"#about\" class=\"ds-nav-link\">About</a><a href=\"#programs\" class=\"ds-nav-link\">What We Offer</a><a href=\"#why-us\" class=\"ds-nav-link\">Why Choose Us</a><a href=\"#testimonials\" class=\"ds-nav-link\">What Parents Say</a><a href=\"#pricing\" class=\"ds-nav-link\">Pricing</a></nav><a href=\"#register\" class=\"ds-btn-sm\">Register Now</a></header>",
+      "css": ".ds-header { background-color: #231510; padding: 12px 24px; position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.10), 0 4px 6px -4px rgba(0,0,0,0.10); border-bottom: 1px solid rgba(255,255,255,0.05); } .ds-nav { display: flex; align-items: center; gap: 24px; } .ds-nav-link { color: rgba(255,255,255,0.75); font-family: 'Poppins', system-ui, sans-serif; font-weight: 500; font-size: 0.875rem; text-decoration: none; transition: color 200ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-link:hover { color: #f9a571; } .ds-btn-sm { display: inline-block; background-color: #c02a0e; color: #ffffff; font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; font-size: 0.875rem; padding: 8px 16px; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.10), 0 2px 4px -2px rgba(0,0,0,0.10); transition: transform 200ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-sm:hover { transform: scale(1.05); }"
+    },
+    {
+      "name": "Hero Registration Panel",
+      "kind": "custom",
+      "description": "The primary conversion surface. White card with maximum elevation (panel-lift shadow) in the hero's right column. The goal of the entire page.",
+      "html": "<div class=\"ds-hero-panel\"><p class=\"ds-kicker-ember\">Summer 2026 &middot; Limited Spots</p><h2 class=\"ds-hero-panel-heading\">Ready to Register?</h2><ul class=\"ds-hero-checklist\"><li class=\"ds-hero-item\"><svg class=\"ds-check\" fill=\"currentColor\" viewBox=\"0 0 20 20\" width=\"20\" height=\"20\"><path fill-rule=\"evenodd\" d=\"M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z\" clip-rule=\"evenodd\"/></svg>Browse all programs: day camps, marine science, climbing &amp; more</li><li class=\"ds-hero-item\"><svg class=\"ds-check\" fill=\"currentColor\" viewBox=\"0 0 20 20\" width=\"20\" height=\"20\"><path fill-rule=\"evenodd\" d=\"M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z\" clip-rule=\"evenodd\"/></svg>Pick your weeks and enroll in our registration system</li><li class=\"ds-hero-item\"><svg class=\"ds-check\" fill=\"currentColor\" viewBox=\"0 0 20 20\" width=\"20\" height=\"20\"><path fill-rule=\"evenodd\" d=\"M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z\" clip-rule=\"evenodd\"/></svg>Secure your child's spot before sessions sell out</li></ul><a href=\"#\" class=\"ds-btn-hero\">Browse &amp; Register Now</a><p class=\"ds-hero-caption\">Only a limited number of spots available, sessions filling quickly.</p></div>",
+      "css": ".ds-hero-panel { background-color: #ffffff; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); padding: 32px; color: #1e1e1e; display: flex; flex-direction: column; gap: 0; } .ds-kicker-ember { font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #c02a0e; margin: 0 0 12px 0; } .ds-hero-panel-heading { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 3rem; line-height: 1; color: #231510; margin: 0 0 24px 0; } .ds-hero-checklist { list-style: none; padding: 0; margin: 0 0 32px 0; display: flex; flex-direction: column; gap: 12px; } .ds-hero-item { display: flex; align-items: flex-start; gap: 12px; font-family: 'Poppins', system-ui, sans-serif; font-size: 0.875rem; color: rgba(30,30,30,0.80); line-height: 1.5; } .ds-check { color: #c02a0e; flex-shrink: 0; margin-top: 2px; } .ds-btn-hero { display: block; width: 100%; text-align: center; background-color: #c02a0e; color: #ffffff; font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; font-size: 1.125rem; padding: 16px 24px; border-radius: 9999px; text-decoration: none; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.10), 0 4px 6px -4px rgba(0,0,0,0.10); transition: background-color 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1); margin-bottom: 16px; } .ds-btn-hero:hover { background-color: #ad2508; transform: scale(1.02); } .ds-hero-caption { font-family: 'Poppins', system-ui, sans-serif; font-size: 0.75rem; color: rgba(30,30,30,0.70); text-align: center; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Base Camp",
+    "overview": "Wild Child's design system is the interface equivalent of a well-run base camp: everything in its place, nothing excessive, warmth that signals competence rather than performing it. The site exists for a parent making a real decision about their child's summer, not for admiring design. Every element earns its place by moving that parent closer to registering, or toward feeling confident enough to do so. Safety and wildness share the same threshold; the design holds both without collapsing into either extreme.\n\nThe palette runs dark and warm. Base Layer and Basecamp Black anchor the system with a depth that communicates 26 years in the field. Ember Core provides the call to action with a campfire urgency that commands attention without alarm. Chalk Dust offers breath between sections. Typography is bold without aggression: Bebas Neue for display authority and impact, Poppins for legibility and approachable warmth. The site is image-forward because the experience is the argument; real camp photography grounds every claim that specificity alone cannot carry.\n\nThis system explicitly rejects: bright-primary-on-white summer camp clipart aesthetics; sanitized institutional design that reads licensed facility over real adventure (Learning Tree, KinderCare); extreme-sports darkness that would make safety-conscious parents hesitate; and SaaS landing page patterns (gradient heroes, hero-metric stat grids, identical icon-heading-text card rows, trust-badge strips).",
+    "keyCharacteristics": [
+      "Full-palette section rhythm: dark surfaces (Base Layer), brand moments (Ember), neutral breaths (White, Chalk Dust) alternate deliberately",
+      "Display type as brand anchor: Bebas Neue at scale carries the authority of the name itself",
+      "Pills everywhere for CTAs: thumb-friendly, brand-consistent, never rectangular",
+      "Imagery-forward: real camp photography grounds every section",
+      "Credibility shown through specificity, not badges: 26 years, 1:6 ratio, named director, real awards"
+    ],
+    "rules": [
+      {
+        "name": "The Two-Surface Rule",
+        "body": "The page alternates: dark surface (Base Layer), brand surface (Ember), or light surface (White or Chalk Dust). Never two adjacent dark sections; never two adjacent Ember sections. Ember as full-bleed background is used exactly once, the final CTA, as its earned moment.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ember-on-Ember Prohibition",
+        "body": "Ember Core and Sunrise Orange never appear on an Ember Core background. On Ember surfaces, CTAs use white backgrounds (Inverted button) and secondary actions use ghost treatment.",
+        "section": "colors"
+      },
+      {
+        "name": "The Kicker Rule",
+        "body": "Every section opens with a short uppercase label in Poppins 600, letter-spacing 0.1em, Ember Core on light surfaces or Sunrise Orange on dark surfaces. This kicker appears once per section, above the h2, never repeated inside the section's content. It is the section's whisper before the display shouts.",
+        "section": "typography"
+      },
+      {
+        "name": "The Bebas-Only Rule",
+        "body": "Bebas Neue is used exclusively for display and headline elements at 2.25rem and above. It never appears at body size or in body copy. Its condensed all-caps form below 2rem reads aggressive rather than authoritative.",
+        "section": "typography"
+      },
+      {
+        "name": "The Elevation Hierarchy Rule",
+        "body": "Shadow depth maps directly to conversion priority: the registration panel (the goal) carries the deepest shadow; primary CTAs (the means) carry the second deepest; content cards carry the least. Assign shadow only as high on this scale as an element's conversion role warrants.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Flat-Interior Rule",
+        "body": "Testimonial cards, trust items, and benefits carry no shadow. They live on surfaces that already distinguish them via background color change. Shadow there is redundant noise.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Bebas Neue exclusively at 2.25rem and above. Let scale carry the authority.",
+      "Do make every CTA a pill (rounded-full, 9999px). The pill is the system's most consistent motif and signals interactivity instantly on mobile.",
+      "Do alternate section backgrounds in the documented rhythm: Base Layer, Ember (once, at page end), White, Chalk Dust. Two adjacent dark sections read as a mistake.",
+      "Do use the kicker pattern (Poppins 600, uppercase, letter-spacing 0.1em, Ember Core on light or Sunrise Orange on dark) once per section, above the h2, nowhere else inside the section.",
+      "Do weight shadows by conversion priority. The registration panel earns the deepest shadow because it is the goal. Decoration earns nothing.",
+      "Do use real camp photography. A real child on a real Colorado summit is the argument no copy can replicate.",
+      "Do keep body text max-width at 65ch. The site is read on phones by parents deciding under time pressure.",
+      "Do use Sunrise Orange (#f9a571) for accent and hover states on dark (Base Layer) surfaces. Use Ember Core (#c02a0e) for action on light (White, Chalk Dust) surfaces."
+    ],
+    "donts": [
+      "Don't use bright primary colors on white backgrounds, clipart-style iconography, or the 2005-era summer camp visual language.",
+      "Don't design toward the institutional daycare feel (Learning Tree, KinderCare aesthetic). If the result reads licensed facility rather than real adventure, rework it.",
+      "Don't go extreme-sports dark or neon-aggressive. The audience is parents deciding on child safety; visual edginess reads as a warning sign.",
+      "Don't use SaaS landing page patterns: gradient hero sections, hero-metric stat grids, identical icon-heading-text card grids, or trust-badge strips.",
+      "Don't use border-left or border-right greater than 1px as a colored accent stripe on any card, alert, or list item.",
+      "Don't use gradient text (background-clip: text with a gradient fill). Emphasis is carried by weight, scale, and Bebas Neue.",
+      "Don't nest cards. Two levels of card depth is always wrong.",
+      "Don't use Bebas Neue below 2.25rem. At small sizes the condensed all-caps face loses legibility and reads aggressive.",
+      "Don't add trust badges. Credibility in this system comes from specificity: 26 years, 1:6 ratio, named director, real awards.",
+      "Don't use Ember Core on an Ember Core background. The inverted and ghost variants exist for exactly this surface."
+    ]
+  }
+}
