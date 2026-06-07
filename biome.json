@@ -28,8 +28,8 @@
                         "useImportType": "off"
                     },
                     "correctness": {
-                        "noUnusedVariables": "off",
-                        "noUnusedImports": "off"
+                        "noUnusedVariables": "warn",
+                        "noUnusedImports": "warn"
                     }
                 }
             }

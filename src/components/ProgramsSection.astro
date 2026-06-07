@@ -62,7 +62,7 @@ const carouselPhotos = Object.entries(photoModules)
     style="mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
   >
     <div
-      class="flex gap-3 w-max animate-[carousel-scroll_35s_linear_infinite] pb-10"
+      class="flex gap-3 w-max animate-carousel-scroll pb-10"
       aria-hidden="true"
     >
       {[...carouselPhotos, ...carouselPhotos].map((photo, i) => (

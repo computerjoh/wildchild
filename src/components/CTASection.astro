@@ -12,7 +12,7 @@ import { FUNJOIN_URL, MAIN_SITE_URL } from "../constants";
         { quote: 'My daughters cannot wait to go back.', name: 'Jaclyn U.' },
       ].map((t) => (
         <div class="text-center">
-          <p class="text-tangerine font-display text-2xl leading-none mb-1">"</p>
+          <p class="text-tangerine font-display text-2xl leading-none mb-1" aria-hidden="true">"</p>
           <p class="text-white/90 text-sm italic">"{t.quote}"</p>
           <p class="text-white/60 text-xs mt-1">— {t.name}</p>
         </div>
