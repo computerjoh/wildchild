@@ -1,0 +1,98 @@
+---
+export const prerender = false;
+
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { slideshows } from "../../data/slideshows";
+import Layout from "../../layouts/Layout.astro";
+import {
+	COOKIE,
+	createSessionToken,
+	verifyPassword,
+	verifySessionToken,
+} from "../../lib/auth";
+
+let error = "";
+let authed = verifySessionToken(Astro.cookies.get(COOKIE.name)?.value);
+
+if (Astro.request.method === "POST") {
+	const form = await Astro.request.formData();
+	const password = String(form.get("password") ?? "");
+
+	if (verifyPassword(password)) {
+		Astro.cookies.set(COOKIE.name, createSessionToken(), COOKIE.options);
+		return Astro.redirect("/slideshows", 303);
+	}
+
+	error = "Incorrect password.";
+	authed = false;
+}
+---
+
+<Layout title="Slideshows — Wild Child Day Camps" description="Private camp slideshows.">
+  <meta slot="head" name="robots" content="noindex" />
+  <Header />
+
+  {
+    authed ? (
+      <main class="min-h-screen bg-sandstone py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-10">
+            <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">
+              Members Only
+            </p>
+            <h1 class="font-display text-4xl sm:text-5xl text-boulder">Slideshows</h1>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {slideshows.map((slideshow) => (
+              <div class="bg-white rounded-2xl p-4 border border-boulder/10 shadow-sm">
+                <div class="aspect-video w-full rounded-xl overflow-hidden bg-boulder">
+                  <iframe
+                    class="w-full h-full"
+                    title={slideshow.title}
+                    src={slideshow.src}
+                    frameborder="0"
+                    loading="lazy"
+                    allowfullscreen
+                  />
+                </div>
+                <p class="mt-4 font-display text-xl text-boulder">{slideshow.title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+    ) : (
+      <main class="min-h-screen bg-sandstone flex items-center justify-center px-6 py-24">
+        <div class="max-w-md w-full mx-auto text-center">
+          <p class="text-ember font-semibold uppercase tracking-widest text-sm mb-2">
+            Members Only
+          </p>
+          <h1 class="font-display text-5xl text-boulder mb-3">Slideshows</h1>
+          <p class="text-carbon/70 mb-8">Enter the password to view.</p>
+
+          <form method="POST" class="flex flex-col gap-4">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              autofocus
+              class="rounded-full border border-boulder/20 px-6 py-4 text-center focus:outline-none focus:ring-2 focus:ring-ember"
+            />
+            <button
+              type="submit"
+              class="bg-ember hover:bg-ember/90 text-white font-bold py-4 px-6 rounded-full text-lg transition-all shadow-lg hover:scale-[1.02] active:scale-100"
+            >
+              Unlock
+            </button>
+            {error && <p class="text-ember font-semibold text-sm">{error}</p>}
+          </form>
+        </div>
+      </main>
+    )
+  }
+
+  <Footer />
+</Layout>
