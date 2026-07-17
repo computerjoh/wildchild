@@ -3,7 +3,7 @@ export const prerender = false;
 
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
-import { slideshows } from "../../data/slideshows";
+import { sessions } from "../../data/sessions";
 import Layout from "../../layouts/Layout.astro";
 import {
 	COOKIE,
@@ -45,19 +45,35 @@ if (Astro.request.method === "POST") {
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {slideshows.map((slideshow) => (
+            {sessions.map((session) => (
               <div class="bg-white rounded-2xl p-4 border border-boulder/10 shadow-sm">
-                <div class="aspect-video w-full rounded-xl overflow-hidden bg-boulder">
-                  <iframe
-                    class="w-full h-full"
-                    title={slideshow.title}
-                    src={slideshow.src}
-                    frameborder="0"
-                    loading="lazy"
-                    allowfullscreen
-                  />
-                </div>
-                <p class="mt-4 font-display text-xl text-boulder">{slideshow.title}</p>
+                <p class="text-ember font-semibold uppercase tracking-widest text-xs mb-1">
+                  Session {session.session}
+                </p>
+                <p class="font-display text-xl text-boulder">{session.title}</p>
+                <p class="text-carbon/70 text-sm mb-4">{session.dates}</p>
+
+                {session.slideshow && (
+                  <div class="aspect-video w-full rounded-xl overflow-hidden bg-boulder">
+                    <iframe
+                      class="w-full h-full"
+                      title={session.title}
+                      src={session.slideshow}
+                      frameborder="0"
+                      loading="lazy"
+                      allowfullscreen
+                    />
+                  </div>
+                )}
+
+                <a
+                  href={session.photos}
+                  target="_blank"
+                  rel="noopener"
+                  class="mt-4 inline-block bg-ember hover:bg-ember/90 text-white font-bold py-2 px-6 rounded-full text-sm transition-all shadow-sm hover:scale-[1.02] active:scale-100"
+                >
+                  Photos
+                </a>
               </div>
             ))}
           </div>
